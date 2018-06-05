@@ -4,14 +4,13 @@ import javafx.scene.image.ImageView;
 public class Piece {
 
     private Image pieceImage;
-    public String[][] boardArray = new String[8][8];
+    public static String[][] boardArray = new String[8][8];
 
-    Piece(Image image) {
+    Piece() {
 
-        this.pieceImage = image;
+        // Image image <- for constructor parameter
+        // this.pieceImage = image;
 
     }
-
-
 
 }
