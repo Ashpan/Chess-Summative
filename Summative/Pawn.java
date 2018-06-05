@@ -6,11 +6,3 @@ public class Pawn extends Piece{
     public void methodTwo(){}
 
 }
-
-
-B
-K
-N
-P
-Q
-R
