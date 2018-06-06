@@ -1,6 +1,7 @@
 import javafx.application.Application;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
@@ -14,21 +15,36 @@ public class Board extends Application {
     public void start(Stage primaryStage) {
         primaryStage.setTitle("GridPane Experiment");
 
-        Button button1 = new Button("Button 1");
-        Button button2 = new Button("Button 2");
-        Button button3 = new Button("Button 3");
-        Button button4 = new Button("Button 4");
-        Button button5 = new Button("Button 5");
-        Button button6 = new Button("Button 6");
-        GridPane gridPane = new GridPane();
+        Image whitePawn = new Image("https://i.imgur.com/rzBdMfr.png");
+        Image blackPawn = new Image("https://i.imgur.com/brIfuCw.png");
+        Image whiteKnight = new Image("https://i.imgur.com/PYMOTu6.png");
+        Image blackKnight = new Image("https://i.imgur.com/JtHhDdK.png");
+        Image whiteRook = new Image("https://i.imgur.com/Jx5SEs8.png");
+        Image blackRook = new Image("https://i.imgur.com/OPBhfr9.png");
+        Image whiteBishop = new Image("https://i.imgur.com/I15r48j.png");
+        Image blackBishop = new Image("https://i.imgur.com/IR1asxl.png");
+        Image whiteQueen = new Image("https://i.imgur.com/P0StNH9.png");
+        Image blackQueen = new Image("https://i.imgur.com/1iLiq2G.png");
+        Image whiteKing = new Image("https://i.imgur.com/nWpexOt.png");
+        Image blackKing = new Image("https://i.imgur.com/Pz2Xg9Y.png");
+        ImageView wPawn = new ImageView(whitePawn);
+        ImageView wKnight = new ImageView(whiteKnight);
+        ImageView wRook = new ImageView(whiteRook);
+        ImageView wBishop = new ImageView(whiteBishop);
+        ImageView wQueen = new ImageView(whiteQueen);
+        ImageView wKing = new ImageView(whiteKing);
 
-        gridPane.add(button1, 0, 0, 1, 1);
-        gridPane.add(button2, 1, 0, 1, 1);
-        gridPane.add(button3, 2, 0, 1, 1);
-        gridPane.add(button4, 0, 1, 1, 1);
-        gridPane.add(button5, 1, 1, 1, 1);
-        gridPane.add(button6, 2, 1, 1, 1);
-        Scene scene = new Scene(gridPane, 240, 100);
+        GridPane gridPane = new GridPane();
+        gridPane.add(wPawn, 0, 0, 1, 1);
+        gridPane.add(wRook, 0, 0, 1, 1);
+        gridPane.add(wKnight, 1, 0, 1, 1);
+        gridPane.add(wBishop, 2, 0, 1, 1);
+        gridPane.add(wQueen, 3, 0, 1, 1);
+        gridPane.add(wKing, 4, 0, 1, 1);
+        gridPane.add(wBishop, 5, 0, 1, 1);
+        gridPane.add(wKnight, 6, 0, 1, 1);
+        gridPane.add(wRook, 7, 0, 1, 1);
+        Scene scene = new Scene(gridPane, 480,480);
         primaryStage.setScene(scene);
         primaryStage.show();
     }
