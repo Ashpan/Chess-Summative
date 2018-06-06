@@ -44,34 +44,32 @@ public class Board extends Application {
         ImageView wRook2 = new ImageView(whiteRook);
         ImageView wBishop2 = new ImageView(whiteBishop);
 
-        ImageView bPawn1 = new ImageView(whitePawn);
-        ImageView bPawn2 = new ImageView(whitePawn);
-        ImageView bPawn3 = new ImageView(whitePawn);
-        ImageView bPawn4 = new ImageView(whitePawn);
-        ImageView bPawn5 = new ImageView(whitePawn);
-        ImageView bPawn6 = new ImageView(whitePawn);
-        ImageView bPawn7 = new ImageView(whitePawn);
-        ImageView bPawn8 = new ImageView(whitePawn);
-        ImageView bKnight1 = new ImageView(whiteKnight);
-        ImageView bRook1 = new ImageView(whiteRook);
-        ImageView bBishop1 = new ImageView(whiteBishop);
-        ImageView bQueen = new ImageView(whiteQueen);
-        ImageView bKing = new ImageView(whiteKing);
-        ImageView bKnight2 = new ImageView(whiteKnight);
-        ImageView bRook2 = new ImageView(whiteRook);
-        ImageView bBishop2 = new ImageView(whiteBishop);
+        ImageView bPawn1 = new ImageView(blackPawn);
+        ImageView bPawn2 = new ImageView(blackPawn);
+        ImageView bPawn3 = new ImageView(blackPawn);
+        ImageView bPawn4 = new ImageView(blackPawn);
+        ImageView bPawn5 = new ImageView(blackPawn);
+        ImageView bPawn6 = new ImageView(blackPawn);
+        ImageView bPawn7 = new ImageView(blackPawn);
+        ImageView bPawn8 = new ImageView(blackPawn);
+        ImageView bKnight1 = new ImageView(blackKnight);
+        ImageView bRook1 = new ImageView(blackRook);
+        ImageView bBishop1 = new ImageView(blackBishop);
+        ImageView bQueen = new ImageView(blackQueen);
+        ImageView bKing = new ImageView(blackKing);
+        ImageView bKnight2 = new ImageView(blackKnight);
+        ImageView bRook2 = new ImageView(blackRook);
+        ImageView bBishop2 = new ImageView(blackBishop);
 
         GridPane gridPane = new GridPane();
-        gridPane.add(wPawn1, 0, 0, 1, 1);
-        gridPane.add(wRook1, 0, 0, 1, 1);
-        gridPane.add(wKnight1, 1, 0, 1, 1);
-        gridPane.add(wBishop1, 2, 0, 1, 1);
-        gridPane.add(wQueen, 3, 0, 1, 1);
-        gridPane.add(wKing, 4, 0, 1, 1);
-        gridPane.add(wBishop2, 5, 0, 1, 1);
-        gridPane.add(wKnight2, 6, 0, 1, 1);
-        gridPane.add(wRook2, 7, 0, 1, 1);
-
+        gridPane.add(bRook1, 0, 0, 1, 1);
+        gridPane.add(bKnight1, 1, 0, 1, 1);
+        gridPane.add(bBishop1, 2, 0, 1, 1);
+        gridPane.add(bQueen, 3, 0, 1, 1);
+        gridPane.add(bKing, 4, 0, 1, 1);
+        gridPane.add(bBishop2, 5, 0, 1, 1);
+        gridPane.add(bKnight2, 6, 0, 1, 1);
+        gridPane.add(bRook2, 7, 0, 1, 1);
         gridPane.add(bPawn1, 0, 1, 1, 1);
         gridPane.add(bPawn2, 1, 1, 1, 1);
         gridPane.add(bPawn3, 2, 1, 1, 1);
@@ -80,7 +78,25 @@ public class Board extends Application {
         gridPane.add(bPawn6, 5, 1, 1, 1);
         gridPane.add(bPawn7, 6, 1, 1, 1);
         gridPane.add(bPawn8, 7, 1, 1, 1);
-        // gridPane.add(wRook2, 8, 1, 1, 1);
+
+        gridPane.add(wRook1, 0, 12, 1, 1);
+        gridPane.add(wKnight1, 1, 12, 1, 1);
+        gridPane.add(wBishop1, 2, 12, 1, 1);
+        gridPane.add(wQueen, 3, 12, 1, 1);
+        gridPane.add(wKing, 4, 12, 1, 1);
+        gridPane.add(wBishop2, 5, 12, 1, 1);
+        gridPane.add(wKnight2, 6, 12, 1, 1);
+        gridPane.add(wRook2, 7, 12, 1, 1);
+        gridPane.add(wPawn1, 0, 13, 1, 1);
+        gridPane.add(wPawn2, 1, 13, 1, 1);
+        gridPane.add(wPawn3, 2, 13, 1, 1);
+        gridPane.add(wPawn4, 3, 13, 1, 1);
+        gridPane.add(wPawn5, 4, 13, 1, 1);
+        gridPane.add(wPawn6, 5, 13, 1, 1);
+        gridPane.add(wPawn7, 6, 13, 1, 1);
+        gridPane.add(wPawn8, 7, 13, 1, 1);
+
+
 
         Scene scene = new Scene(gridPane, 480,480);
         primaryStage.setScene(scene);
