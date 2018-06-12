@@ -1,1 +1,1 @@
-# FUCK YOU OMAR
+# Chess for ICS4UR
