@@ -1,9 +1,13 @@
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundImage;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+import javafx.scene.input.MouseEvent; // to find mouse clicks
 
 public class Board extends Application {
 
@@ -13,8 +17,30 @@ public class Board extends Application {
 
     @Override
     public void start(Stage primaryStage) {
+
         primaryStage.setTitle("GridPane Experiment");
 
+        GridPane gridPane = setUpPieces();
+
+        Scene scene = new Scene(gridPane, 480,480);
+        primaryStage.setScene(scene);
+        primaryStage.show();
+
+
+        scene.addEventFilter(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                System.out.println("X: " + event.getSceneX() + " Y: " + event.getSceneY());
+            }
+        });
+
+    }
+
+
+
+    private GridPane setUpPieces() {
+
+        Image background = new Image("https://i.imgur.com/vnNyRP3.png");
         Image whitePawn = new Image("https://i.imgur.com/I15r48j.png");
         Image blackPawn = new Image("https://i.imgur.com/IR1asxl.png");
         Image whiteKnight = new Image("https://i.imgur.com/PYMOTu6.png");
@@ -27,6 +53,8 @@ public class Board extends Application {
         Image blackQueen = new Image("https://i.imgur.com/1iLiq2G.png");
         Image whiteKing = new Image("https://i.imgur.com/nWpexOt.png");
         Image blackKing = new Image("https://i.imgur.com/Pz2Xg9Y.png");
+
+        ImageView bg = new ImageView(background);
         ImageView wPawn1 = new ImageView(whitePawn);
         ImageView wPawn2 = new ImageView(whitePawn);
         ImageView wPawn3 = new ImageView(whitePawn);
@@ -62,14 +90,9 @@ public class Board extends Application {
         ImageView bBishop2 = new ImageView(blackBishop);
 
         GridPane gridPane = new GridPane();
-        gridPane.add(bRook1, 0, 0, 1, 1);
-        gridPane.add(bKnight1, 1, 0, 1, 1);
-        gridPane.add(bBishop1, 2, 0, 1, 1);
-        gridPane.add(bQueen, 3, 0, 1, 1);
-        gridPane.add(bKing, 4, 0, 1, 1);
-        gridPane.add(bBishop2, 5, 0, 1, 1);
-        gridPane.add(bKnight2, 6, 0, 1, 1);
-        gridPane.add(bRook2, 7, 0, 1, 1);
+        Background bgImage = new Background(new BackgroundImage(background, null, null, null, null));
+        gridPane.setBackground(bgImage);
+
         gridPane.add(bPawn1, 0, 1, 1, 1);
         gridPane.add(bPawn2, 1, 1, 1, 1);
         gridPane.add(bPawn3, 2, 1, 1, 1);
@@ -79,28 +102,40 @@ public class Board extends Application {
         gridPane.add(bPawn7, 6, 1, 1, 1);
         gridPane.add(bPawn8, 7, 1, 1, 1);
 
-        gridPane.add(wRook1, 0, 12, 1, 1);
-        gridPane.add(wKnight1, 1, 12, 1, 1);
-        gridPane.add(wBishop1, 2, 12, 1, 1);
-        gridPane.add(wQueen, 3, 12, 1, 1);
-        gridPane.add(wKing, 4, 12, 1, 1);
-        gridPane.add(wBishop2, 5, 12, 1, 1);
-        gridPane.add(wKnight2, 6, 12, 1, 1);
-        gridPane.add(wRook2, 7, 12, 1, 1);
-        gridPane.add(wPawn1, 0, 13, 1, 1);
-        gridPane.add(wPawn2, 1, 13, 1, 1);
-        gridPane.add(wPawn3, 2, 13, 1, 1);
-        gridPane.add(wPawn4, 3, 13, 1, 1);
-        gridPane.add(wPawn5, 4, 13, 1, 1);
-        gridPane.add(wPawn6, 5, 13, 1, 1);
-        gridPane.add(wPawn7, 6, 13, 1, 1);
-        gridPane.add(wPawn8, 7, 13, 1, 1);
+        gridPane.add(bRook1, 0, 0, 1, 1);
+        gridPane.add(bKnight1, 1, 0, 1, 1);
+        gridPane.add(bBishop1, 2, 0, 1, 1);
+        gridPane.add(bQueen, 3, 0, 1, 1);
+        gridPane.add(bKing, 4, 0, 1, 1);
+        gridPane.add(bBishop2, 5, 0, 1, 1);
+        gridPane.add(bKnight2, 6, 0, 1, 1);
+        gridPane.add(bRook2, 7, 0, 1, 1);
 
+        for(int i = 2; i <= 5; i++) {
+            for(int col = 0; col < 8; col++) {
+                gridPane.add(new ImageView(new Image("https://i.imgur.com/LXorSui.png")), col, i, 1, 1);
+            }
+        }
 
+        gridPane.add(wRook1, 0, 13, 1, 1);
+        gridPane.add(wKnight1, 1, 13, 1, 1);
+        gridPane.add(wBishop1, 2, 13, 1, 1);
+        gridPane.add(wQueen, 3, 13, 1, 1);
+        gridPane.add(wKing, 4, 13, 1, 1);
+        gridPane.add(wBishop2, 5, 13, 1, 1);
+        gridPane.add(wKnight2, 6, 13, 1, 1);
+        gridPane.add(wRook2, 7, 13, 1, 1);
+        gridPane.add(wPawn1, 0, 12, 1, 1);
+        gridPane.add(wPawn2, 1, 12, 1, 1);
+        gridPane.add(wPawn3, 2, 12, 1, 1);
+        gridPane.add(wPawn4, 3, 12, 1, 1);
+        gridPane.add(wPawn5, 4, 12, 1, 1);
+        gridPane.add(wPawn6, 5, 12, 1, 1);
+        gridPane.add(wPawn7, 6, 12, 1, 1);
+        gridPane.add(wPawn8, 7, 12, 1, 1);
 
-        Scene scene = new Scene(gridPane, 480,480);
-        primaryStage.setScene(scene);
-        primaryStage.show();
+        return gridPane;
+
     }
 
 }
