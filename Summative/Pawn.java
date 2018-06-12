@@ -1,18 +1,18 @@
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 public class Pawn extends Piece {
 
     public int xCoord, yCoord;
-    public int moves;
+//    public int moves;
     public Image image;
 
     Pawn(int xCoord, int yCoord, Image image) {
-
-        super();
         this.xCoord = xCoord;
         this.yCoord = yCoord;
         this.image = image;
-        Piece.boardArray[yCoord][xCoord] = "P";
+        Piece.boardArray[yCoord][xCoord] = new ImageView(image);
+        System.out.println("Pawn");
     }
 
 

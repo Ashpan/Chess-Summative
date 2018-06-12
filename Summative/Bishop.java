@@ -8,11 +8,10 @@ public class Bishop extends Piece {
 
     Bishop(int xCoord, int yCoord, Image image) {
 
-        super();
         this.xCoord = xCoord;
         this.yCoord = yCoord;
         this.image = image;
-        Piece.boardArray[yCoord][xCoord] = "B";
+//        Piece.boardArray[yCoord][xCoord] = "B";
     }
 
     public boolean canMoveDiagonal() { return true; }

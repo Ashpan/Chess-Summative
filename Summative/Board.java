@@ -3,11 +3,11 @@ import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundImage;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-import javafx.scene.input.MouseEvent; // to find mouse clicks
 
 public class Board extends Application {
 
@@ -17,8 +17,11 @@ public class Board extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-
-        primaryStage.setTitle("GridPane Experiment");
+        Click click = new Click();
+        Piece piece = new Piece();
+        piece.init();
+        piece.displayArray();
+        primaryStage.setTitle("Chess Game!");
 
         GridPane gridPane = setUpPieces();
 
@@ -30,7 +33,20 @@ public class Board extends Application {
         scene.addEventFilter(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                System.out.println("X: " + event.getSceneX() + " Y: " + event.getSceneY());
+                Tuple coord = new Tuple((int) event.getSceneX(), (int) event.getSceneY());
+//                if(Piece.exists(coord)){
+                if(true){
+                    click.onClick();
+                    Tuple previousCoordinates;
+                    Tuple currentCoordinates;
+                    if(click.getClicks() == 1){
+                        previousCoordinates = coord;
+                        System.out.println("Prev: " + previousCoordinates.print());
+                    }else if(click.getClicks() == 2){
+                        currentCoordinates = coord;
+                        System.out.println("Curr: " + currentCoordinates.print());
+                    }
+                }
             }
         });
 

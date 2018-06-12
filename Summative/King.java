@@ -8,11 +8,10 @@ public class King extends Piece {
 
     King(int xCoord, int yCoord, Image image) {
 
-        super();
         this.xCoord = xCoord;
         this.yCoord = yCoord;
         this.image = image;
-        Piece.boardArray[yCoord][xCoord] = "K";
+//        Piece.boardArray[yCoord][xCoord] = "K";
     }
 
     public boolean canMoveDiagonal() { return true; }
