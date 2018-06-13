@@ -33,7 +33,7 @@ public class Board extends Application {
         scene.addEventFilter(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                Tuple coord = new Tuple((int) event.getSceneX(), (int) event.getSceneY());
+                Tuple coord = new Tuple((int) event.getSceneX()/60, (int) event.getSceneY()/60);
 //                if(Piece.exists(coord)){
                 if(true){
                     click.onClick();
