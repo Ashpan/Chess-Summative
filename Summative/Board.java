@@ -42,7 +42,7 @@ public class Board extends Application {
                     if(click.getClicks() == 1){
                         previousCoordinates = coord;
                         System.out.println("Prev: " + previousCoordinates.print());
-                    }else if(click.getClicks() == 2){
+                    }else if(click.getClicks() == 2) {
                         currentCoordinates = coord;
                         System.out.println("Curr: " + currentCoordinates.print());
                     }
