@@ -1,5 +1,4 @@
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 
 public class Pawn extends Piece {
 
@@ -11,8 +10,15 @@ public class Pawn extends Piece {
         this.xCoord = xCoord;
         this.yCoord = yCoord;
         this.image = image;
-        Piece.boardArray[yCoord][xCoord] = new ImageView(image);
+        Piece.boardArray[yCoord][xCoord] = this;
         System.out.println("Pawn");
+        System.out.println();
+    }
+    public int getX(){
+        return this.xCoord;
+    }
+    public int getY(){
+        return this.yCoord;
     }
 
 
