@@ -14,6 +14,12 @@ public class Knight extends Piece {
 //        Piece.boardArray[yCoord][xCoord] = "N";
     }
 
+    public int getX(){
+        return this.xCoord;
+    }
+    public int getY(){
+        return this.yCoord;
+    }
     public boolean canMove() { return true; }
 
 }

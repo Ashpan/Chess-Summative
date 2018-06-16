@@ -14,6 +14,13 @@ public class Bishop extends Piece {
 //        Piece.boardArray[yCoord][xCoord] = "B";
     }
 
+    public int getX(){
+        return this.xCoord;
+    }
+    public int getY(){
+        return this.yCoord;
+    }
+
     public boolean canMoveDiagonal() { return true; }
 
 }

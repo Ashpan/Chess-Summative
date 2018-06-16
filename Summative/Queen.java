@@ -14,6 +14,13 @@ public class Queen extends Piece {
 //        Piece.boardArray[yCoord][xCoord] = "Q";
     }
 
+    public int getX(){
+        return this.xCoord;
+    }
+    public int getY(){
+        return this.yCoord;
+    }
+
     public boolean canMoveDiagonal() { return true; }
     public boolean canMoveVertical() { return true; }
     public boolean canMoveHorizontal() { return true; }

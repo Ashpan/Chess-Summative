@@ -14,6 +14,11 @@ public class Rook extends Piece {
 //        Piece.boardArray[yCoord][xCoord] = "R";
     }
 
+    public int getX(){
+        return this.xCoord;
+    }
+    public int getY(){ return this.yCoord; }
+
     public boolean canMoveVertical() { return true; }
     public boolean canMoveHorizontal() { return true; }
 

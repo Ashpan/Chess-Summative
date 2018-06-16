@@ -59,4 +59,5 @@ public class Piece {
             System.out.println();
         }
     }
+
 }

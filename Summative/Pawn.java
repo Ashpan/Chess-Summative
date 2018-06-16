@@ -21,7 +21,6 @@ public class Pawn extends Piece {
         return this.yCoord;
     }
 
-
     public boolean canMoveDiagonal() { return true; }
     public boolean canMoveOneSpace() { return true; }
     public boolean canMoveTwoSpaces() { return true; }
