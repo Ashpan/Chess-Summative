@@ -1,4 +1,6 @@
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
 
 public class Piece {
 
@@ -83,11 +85,42 @@ public class Piece {
         }
     }
 
-    public boolean exists(int xCoord, int yCoord){
-        if(boardArray[yCoord][xCoord] != null) {
+    public boolean exists(int xCoord, int yCoord) {
+        if (boardArray[yCoord][xCoord] != null) {
             return true;
-        }else{
+        } else {
             return false;
         }
+    }
+
+    public GridPane updateBoard(GridPane gridpane, Piece piece){
+        Image background = new Image("https://i.imgur.com/vnNyRP3.png");
+        Image whitePawn = new Image("https://i.imgur.com/I15r48j.png");
+        Image blackPawn = new Image("https://i.imgur.com/IR1asxl.png");
+        Image whiteKnight = new Image("https://i.imgur.com/PYMOTu6.png");
+        Image blackKnight = new Image("https://i.imgur.com/JtHhDdK.png");
+        Image whiteRook = new Image("https://i.imgur.com/Jx5SEs8.png");
+        Image blackRook = new Image("https://i.imgur.com/OPBhfr9.png");
+        Image whiteBishop = new Image("https://i.imgur.com/rzBdMfr.png");
+        Image blackBishop = new Image("https://i.imgur.com/brIfuCw.png");
+        Image whiteQueen = new Image("https://i.imgur.com/P0StNH9.png");
+        Image blackQueen = new Image("https://i.imgur.com/1iLiq2G.png");
+        Image whiteKing = new Image("https://i.imgur.com/nWpexOt.png");
+        Image blackKing = new Image("https://i.imgur.com/Pz2Xg9Y.png");
+        gridpane.getChildren().removeAll();
+//            System.out.println(piece.boardArray[6][0] instanceof PiecePawn);
+        for(int y = 0; y < boardArray.length; y++){
+            int x = 0;
+            for (Piece i : boardArray[y]){
+                System.out.println(i.);
+                if(boardArray[y][x] instanceof PiecePawn && boardArray[y][x].isBlack){
+                    gridpane.add(new ImageView(blackPawn), x, y, 1, 1);
+                }else{
+                    gridpane.add(new ImageView(whitePawn), x, y, 1, 1);
+                }
+                x++;
+            }
+        }
+        return gridpane;
     }
 }

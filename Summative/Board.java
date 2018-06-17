@@ -17,6 +17,7 @@ public class Board extends Application {
 
     @Override
     public void start(Stage primaryStage) {
+
         Click click = new Click();
         Piece piece = new Piece();
         piece.init();
@@ -53,16 +54,16 @@ public class Board extends Application {
                     System.out.println("acc Prev: " + prevX + ", " + prevY);
                     System.out.println("Curr: " + currX + ", " + currY);
                     if(true){
-                        gridPane.add(new ImageView(new Image("https://i.imgur.com/LXorSui.png")), prevX, prevY, 1, 1);
-                        gridPane.add(new ImageView(new Image("https://i.imgur.com/I15r48j.png")), currX, currY, 1, 1);
+                        gridPane.add(new ImageView(new Image("https://i.imgur.com/LXorSui.png")), prevX, prevY);
+                        gridPane.add(new ImageView(new Image("https://i.imgur.com/I15r48j.png")), currX, currY);
                         piece.displayArray();
                     }
                 }
             }
         });
+        piece.updateBoard(gridPane, piece);
 
     }
-
 
 
     private GridPane setUpPieces() {
@@ -164,6 +165,7 @@ public class Board extends Application {
         return gridPane;
 
     }
+
 
 }
 

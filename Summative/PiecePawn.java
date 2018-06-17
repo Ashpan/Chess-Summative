@@ -20,7 +20,7 @@ public class PiecePawn extends Piece {
     public int getY(){
         return this.yCoord;
     }
-
+    public boolean isBlack() { return true; }
     public boolean canMoveDiagonal() { return true; }
     public boolean canMoveOneSpace() { return true; }
     public boolean canMoveTwoSpaces() { return true; }
