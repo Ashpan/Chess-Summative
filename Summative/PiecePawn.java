@@ -3,14 +3,14 @@ import javafx.scene.image.Image;
 public class PiecePawn extends Piece {
 
     public int xCoord, yCoord;
-//    public int moves;
+    public int moves;
     public Image image;
 
     PiecePawn(int xCoord, int yCoord, Image image) {
         this.xCoord = xCoord;
         this.yCoord = yCoord;
         this.image = image;
-//        Piece.boardArray[xCoord][yCoord] = this;
+        Piece.boardArray[xCoord][yCoord] = this;
         System.out.println("PiecePawn");
         System.out.println();
     }
@@ -21,8 +21,82 @@ public class PiecePawn extends Piece {
         return this.yCoord;
     }
 
-    public boolean canMoveDiagonal() { return true; }
-    public boolean canMoveOneSpace() { return true; }
-    public boolean canMoveTwoSpaces() { return true; }
+    public boolean canMoveDiagonal(int currX, int currY, int prevX, int prevY) {
+
+        // currX/Y -> position that the user wants the pieces to go to
+        // prevX/Y -> position that piece is currently on
+
+        if(isBlack) {
+            // black
+            if ((boardArray[currY][currX] != null) && (prevX + 1 == currX) && (prevY + 1 == currY)) {
+                return true;
+            } else if ((boardArray[currY][currX] != null) && (prevX - 1 == currX) && (prevY + 1 == currY)) {
+                return true;
+            } else {
+                return false;
+            }
+
+        } else {
+            // white
+            if ((boardArray[currY][currX] != null) && (prevX - 1 == currX) && (prevY - 1 == currY)) {
+                return true;
+            } else if ((boardArray[currY][currX] != null) && (prevX + 1 == currX) && (prevY - 1 == currY)) {
+                return true;
+            } else {
+                return false;
+            }
+
+        }
+
+    }
+    public boolean canMoveOneSpace(int currX, int currY, int prevX, int prevY) {
+
+        // currX/Y -> position that the user wants the pieces to go to
+        // prevX/Y -> position that piece is currently on
+
+        if(isBlack) {
+            // black
+            if ((boardArray[currY][currX] == null) && (prevX == currX) && (prevY + 1 == currY)) {
+                return true;
+            } else {
+                return false;
+            }
+
+        } else {
+            // white
+            if ((boardArray[currY][currX] == null) && (prevX == currX) && (prevY - 1 == currY)) {
+                return true;
+            } else {
+                return false;
+            }
+
+        }
+
+    }
+
+    public boolean canMoveTwoSpaces(int currX, int currY, int prevX, int prevY) {
+
+        // currX/Y -> position that the user wants the pieces to go to
+        // prevX/Y -> position that piece is currently on
+
+        if(isBlack) {
+            // black
+            if ((moves == 0) && (boardArray[currY][currX] == null) && (prevX == currX) && (prevY + 2 == currY)) {
+                return true;
+            } else {
+                return false;
+            }
+
+        } else {
+            // white
+            if ((moves == 0) && (boardArray[currY][currX] == null) && (currX == prevX) && (prevY - 2 == currY)) {
+                return true;
+            } else {
+                return false;
+            }
+
+        }
+
+    }
 
 }

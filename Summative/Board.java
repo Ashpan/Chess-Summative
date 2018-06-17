@@ -132,7 +132,6 @@ public class Board extends Application {
         gridPane.add(bRook1, 0, 0, 1, 1);
         gridPane.add(bKnight1, 1, 0, 1, 1);
         gridPane.add(bBishop1, 2, 0, 1, 1);
-        gridPane.add(bQueen, 3, 0, 1, 1);
         gridPane.add(bKing, 4, 0, 1, 1);
         gridPane.add(bBishop2, 5, 0, 1, 1);
         gridPane.add(bKnight2, 6, 0, 1, 1);
