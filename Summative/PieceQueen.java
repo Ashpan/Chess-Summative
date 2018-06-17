@@ -24,8 +24,81 @@ public class PieceQueen extends Piece {
     public static boolean isBlack() { return isBlack; }
     public Image getImage() { return image; }
 
-    public boolean canMoveDiagonal() { return true; }
-    public boolean canMoveVertical() { return true; }
-    public boolean canMoveHorizontal() { return true; }
+    public boolean canMoveDiagonal(int currX, int currY, int prevX, int prevY) {
+
+        // currX/Y -> position that the user wants the pieces to go to
+        // prevX/Y -> position that piece is currently on
+
+        if ((prevX - currX == prevY - currY && prevX - currX > 0)) {
+            // top left
+            for (int x = prevX - 1; x > currX; x--) {
+                if (boardArray[prevY -= 1][x] != null) {
+                    return false;
+                }
+            }
+            return true;
+        } else if ((currX - prevX == prevY - currY && currX - prevX > 0)) {
+            // top right
+            for (int x = prevX + 1; x < currX; x++) {
+                if (boardArray[prevY -= 1][x] != null) {
+                    return false;
+                }
+            }
+            return true;
+        } else if ((currX - prevX == currY - prevY && currX - prevX > 0)) {
+            for (int x = prevX + 1; x < currX; x++) {
+                if (boardArray[prevY += 1][x] != null) {
+                    return false;
+                }
+            }
+            return true;
+        } else if ((prevX - currX == currY - prevY && prevX - currX > 0)) {
+            // top left
+            for (int x = prevX - 1; x > currX; x--) {
+                if (boardArray[prevY += 1][x] != null) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        return false;
+    }
+    public boolean canMoveVertical(int currX, int currY, int prevX, int prevY) {
+
+        // currX/Y -> position that the user wants the pieces to go to
+        // prevX/Y -> position that piece is currently on
+
+        for (int y = (prevY - 1); y > currY; y--) {
+            if(boardArray[y][prevX] != null) {
+                return false;
+            }
+        }
+        for (int y = (prevY + 1); y < currY; y++) {
+            if(boardArray[y][prevX] != null) {
+                return false;
+            }
+        }
+        return true;
+
+    }
+
+    public boolean canMoveHorizontal(int currX, int currY, int prevX, int prevY) {
+
+        // currX/Y -> position that the user wants the pieces to go to
+        // prevX/Y -> position that piece is currently on
+
+        for (int x = (prevX + 1); x < currX; x++) {
+            if(boardArray[prevY][x] != null) {
+                return false;
+            }
+        }
+        for (int x = (prevX - 1); x > currX; x--) {
+            if(boardArray[prevY][x] != null) {
+                return false;
+            }
+        }
+        return true;
+
+    }
 
 }
