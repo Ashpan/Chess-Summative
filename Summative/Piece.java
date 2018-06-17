@@ -6,49 +6,72 @@ public class Piece {
 
     public void init(){
 
-        Pawn bp1 = new Pawn(0, 1, new Image("https://i.imgur.com/IR1asxl.png"));
-        boardArray[bp1.getX()][bp1.getY()] = bp1;
-        Pawn bp2 = new Pawn(1, 1, new Image("https://i.imgur.com/IR1asxl.png"));
-        boardArray[bp2.getX()][bp2.getY()] = bp2;
-        Pawn bp3 = new Pawn(2, 1, new Image("https://i.imgur.com/IR1asxl.png"));
-        boardArray[bp3.getX()][bp3.getY()] = bp3;
-        Pawn bp4 = new Pawn(3, 1, new Image("https://i.imgur.com/IR1asxl.png"));
-        boardArray[bp4.getX()][bp4.getY()] = bp4;
-        Pawn bp5 = new Pawn(4, 1, new Image("https://i.imgur.com/IR1asxl.png"));
-        boardArray[bp5.getX()][bp5.getY()] = bp5;
-        Pawn bp6 = new Pawn(5, 1, new Image("https://i.imgur.com/IR1asxl.png"));
-        boardArray[bp6.getX()][bp6.getY()] = bp6;
-        Pawn bp7 = new Pawn(6, 1, new Image("https://i.imgur.com/IR1asxl.png"));
-        boardArray[bp7.getX()][bp7.getY()] = bp7;
-        Pawn bp8 = new Pawn(7, 1, new Image("https://i.imgur.com/IR1asxl.png"));
-        boardArray[bp8.getX()][bp8.getY()] = bp8;
-        Rook br1 = new Rook(0, 0 , new Image("https://i.imgur.com/OPBhfr9.png"));
-        boardArray[br1.getX()][br1.getY()] = br1;
-        Knight bn1 = new Knight(1, 0, new Image("https://i.imgur.com/JtHhDdK.png"));
-        Bishop bb1 = new Bishop(2, 0, new Image("https://i.imgur.com/brIfuCw.png"));
-        Queen bq1 = new Queen(3, 0, new Image("https://i.imgur.com/1iLiq2G.png"));
-        King bk1 = new King(4, 0, new Image("https://i.imgur.com/Pz2Xg9Y.png"));
-        Bishop bb2 = new Bishop(5, 0,new Image("https://i.imgur.com/brIfuCw.png") );
-        Knight bn2 = new Knight(6, 0, new Image("https://i.imgur.com/JtHhDdK.png"));
-        Rook br2 = new Rook(7, 0 , new Image("https://i.imgur.com/OPBhfr9.png"));
+        PiecePawn bp1 = new PiecePawn(0, 1, new Image("https://i.imgur.com/IR1asxl.png"));
+        PiecePawn bp2 = new PiecePawn(1, 1, new Image("https://i.imgur.com/IR1asxl.png"));
+        PiecePawn bp3 = new PiecePawn(2, 1, new Image("https://i.imgur.com/IR1asxl.png"));
+        PiecePawn bp4 = new PiecePawn(3, 1, new Image("https://i.imgur.com/IR1asxl.png"));
+        PiecePawn bp5 = new PiecePawn(4, 1, new Image("https://i.imgur.com/IR1asxl.png"));
+        PiecePawn bp6 = new PiecePawn(5, 1, new Image("https://i.imgur.com/IR1asxl.png"));
+        PiecePawn bp7 = new PiecePawn(6, 1, new Image("https://i.imgur.com/IR1asxl.png"));
+        PiecePawn bp8 = new PiecePawn(7, 1, new Image("https://i.imgur.com/IR1asxl.png"));
+        PieceRook br1 = new PieceRook(0, 0 , new Image("https://i.imgur.com/OPBhfr9.png"));
+        PieceKnight bn1 = new PieceKnight(1, 0, new Image("https://i.imgur.com/JtHhDdK.png"));
+        PieceBishop bb1 = new PieceBishop(2, 0, new Image("https://i.imgur.com/brIfuCw.png"));
+        PieceQueen bq1 = new PieceQueen(3, 0, new Image("https://i.imgur.com/1iLiq2G.png"));
+        PieceKing bk1 = new PieceKing(4, 0, new Image("https://i.imgur.com/Pz2Xg9Y.png"));
+        PieceBishop bb2 = new PieceBishop(5, 0,new Image("https://i.imgur.com/brIfuCw.png") );
+        PieceKnight bn2 = new PieceKnight(6, 0, new Image("https://i.imgur.com/JtHhDdK.png"));
+        PieceRook br2 = new PieceRook(7, 0 , new Image("https://i.imgur.com/OPBhfr9.png"));
+        PiecePawn wp1 = new PiecePawn(0, 6, new Image("https://i.imgur.com/I15r48j.png"));
+        PiecePawn wp2 = new PiecePawn(1, 6, new Image("https://i.imgur.com/I15r48j.png"));
+        PiecePawn wp3 = new PiecePawn(2, 6, new Image("https://i.imgur.com/I15r48j.png"));
+        PiecePawn wp4 = new PiecePawn(3, 6, new Image("https://i.imgur.com/I15r48j.png"));
+        PiecePawn wp5 = new PiecePawn(4, 6, new Image("https://i.imgur.com/I15r48j.png"));
+        PiecePawn wp6 = new PiecePawn(5, 6, new Image("https://i.imgur.com/I15r48j.png"));
+        PiecePawn wp7 = new PiecePawn(6, 6, new Image("https://i.imgur.com/I15r48j.png"));
+        PiecePawn wp8 = new PiecePawn(7, 6, new Image("https://i.imgur.com/I15r48j.png"));
+        PieceRook wr1 = new PieceRook(0, 7, new Image("https://i.imgur.com/Jx5SEs8.png"));
+        PieceKnight wn1 = new PieceKnight(1, 7, new Image("https://i.imgur.com/PYMOTu6.png"));
+        PieceBishop wb1 = new PieceBishop(2, 7, new Image("https://i.imgur.com/rzBdMfr.png"));
+        PieceQueen wq1 = new PieceQueen(3, 7, new Image("https://i.imgur.com/P0StNH9.png"));
+        PieceKing wk1 = new PieceKing(4, 7, new Image("https://i.imgur.com/nWpexOt.png"));
+        PieceBishop wb2 = new PieceBishop(5, 7, new Image("https://i.imgur.com/rzBdMfr.png"));
+        PieceKnight wn2 = new PieceKnight(6, 7 , new Image("https://i.imgur.com/PYMOTu6.png"));
+        PieceRook wr2 = new PieceRook(7, 7, new Image("https://i.imgur.com/Jx5SEs8.png"));
 
-        Pawn wp1 = new Pawn(0, 6, new Image("https://i.imgur.com/I15r48j.png"));
-        Pawn wp2 = new Pawn(1, 6, new Image("https://i.imgur.com/I15r48j.png"));
-        Pawn wp3 = new Pawn(2, 6, new Image("https://i.imgur.com/I15r48j.png"));
-        Pawn wp4 = new Pawn(3, 6, new Image("https://i.imgur.com/I15r48j.png"));
-        Pawn wp5 = new Pawn(4, 6, new Image("https://i.imgur.com/I15r48j.png"));
-        Pawn wp6 = new Pawn(5, 6, new Image("https://i.imgur.com/I15r48j.png"));
-        Pawn wp7 = new Pawn(6, 6, new Image("https://i.imgur.com/I15r48j.png"));
-        Pawn wp8 = new Pawn(7, 6, new Image("https://i.imgur.com/I15r48j.png"));
-        Rook wr1 = new Rook(0, 6, new Image("https://i.imgur.com/Jx5SEs8.png"));
-        Knight wn1 = new Knight(1, 6, new Image("https://i.imgur.com/PYMOTu6.png"));
-        Bishop wb1 = new Bishop(2, 6, new Image("https://i.imgur.com/rzBdMfr.png"));
-        Queen wq1 = new Queen(3, 6, new Image("https://i.imgur.com/P0StNH9.png"));
-        King wk1 = new King(4, 6, new Image("https://i.imgur.com/nWpexOt.png"));
-        Bishop wb2 = new Bishop(5, 6, new Image("https://i.imgur.com/rzBdMfr.png"));
-        Knight wn2 = new Knight(6, 6 , new Image("https://i.imgur.com/PYMOTu6.png"));
-        Rook wr2 = new Rook(7, 6, new Image("https://i.imgur.com/Jx5SEs8.png"));
-
+        boardArray[bp1.getY()][bp1.getX()] = bp1;
+        boardArray[bp2.getY()][bp2.getX()] = bp2;
+        boardArray[bp3.getY()][bp3.getX()] = bp3;
+        boardArray[bp4.getY()][bp4.getX()] = bp4;
+        boardArray[bp5.getY()][bp5.getX()] = bp5;
+        boardArray[bp6.getY()][bp6.getX()] = bp6;
+        boardArray[bp7.getY()][bp7.getX()] = bp7;
+        boardArray[bp8.getY()][bp8.getX()] = bp8;
+        boardArray[br1.getY()][br1.getX()] = br1;
+        boardArray[bn1.getY()][bn1.getX()] = bn1;
+        boardArray[bb1.getY()][bb1.getX()] = bb1;
+        boardArray[bq1.getY()][bq1.getX()] = bq1;
+        boardArray[bk1.getY()][bk1.getX()] = bk1;
+        boardArray[bb2.getY()][bb2.getX()] = bb2;
+        boardArray[bn2.getY()][bn2.getX()] = bn2;
+        boardArray[br2.getY()][br2.getX()] = br2;
+        boardArray[wp1.getY()][wp1.getX()] = wp1;
+        boardArray[wp2.getY()][wp2.getX()] = wp2;
+        boardArray[wp3.getY()][wp3.getX()] = wp3;
+        boardArray[wp4.getY()][wp4.getX()] = wp4;
+        boardArray[wp5.getY()][wp5.getX()] = wp5;
+        boardArray[wp6.getY()][wp6.getX()] = wp6;
+        boardArray[wp7.getY()][wp7.getX()] = wp7;
+        boardArray[wp8.getY()][wp8.getX()] = wp8;
+        boardArray[wr1.getY()][wr1.getX()] = wr1;
+        boardArray[wn1.getY()][wn1.getX()] = wn1;
+        boardArray[wb1.getY()][wb1.getX()] = wb1;
+        boardArray[wq1.getY()][wq1.getX()] = wq1;
+        boardArray[wk1.getY()][wk1.getX()] = wk1;
+        boardArray[wb2.getY()][wb2.getX()] = wb2;
+        boardArray[wn2.getY()][wn2.getX()] = wn2;
+        boardArray[wr2.getY()][wr2.getX()] = wr2;
+//        boardArray[0][0] = null;
     }
 
     public void displayArray(){
@@ -57,6 +80,14 @@ public class Piece {
                 System.out.print(boardArray[i][j] + ", ");
             }
             System.out.println();
+        }
+    }
+
+    public boolean exists(int xCoord, int yCoord){
+        if(boardArray[yCoord][xCoord] != null) {
+            return true;
+        }else{
+            return false;
         }
     }
 }

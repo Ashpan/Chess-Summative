@@ -31,20 +31,31 @@ public class Board extends Application {
 
 
         scene.addEventFilter(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+            int prevX = -1, prevY = -1;
+            int currX = -1 , currY = -1;
             @Override
             public void handle(MouseEvent event) {
-                Tuple coord = new Tuple((int) event.getSceneX()/60, (int) event.getSceneY()/60);
-//                if(Piece.exists(coord)){
-                if(true){
-                    click.onClick();
-                    Tuple previousCoordinates;
-                    Tuple currentCoordinates;
-                    if(click.getClicks() == 1){
-                        previousCoordinates = coord;
-                        System.out.println("Prev: " + previousCoordinates.print());
-                    }else if(click.getClicks() == 2) {
-                        currentCoordinates = coord;
-                        System.out.println("Curr: " + currentCoordinates.print());
+                int xCoord = (int) event.getSceneX()/60;
+                int yCoord = (int) event.getSceneY()/60;
+                click.onClick();
+                if(click.getClicks() == 1 && piece.exists(xCoord, yCoord)) {
+                    if (click.getClicks() == 1) {
+                        prevX = xCoord;
+                        prevY = yCoord;
+                        System.out.println("Prev: " + prevX + ", " + prevY);
+                    }
+                }else if(click.getClicks() == 1 && !piece.exists(xCoord, yCoord)){
+                    click.setClick(0);
+                }
+                if (click.getClicks() == 2) {
+                    currX = xCoord;
+                    currY = yCoord;
+                    System.out.println("acc Prev: " + prevX + ", " + prevY);
+                    System.out.println("Curr: " + currX + ", " + currY);
+                    if(true){
+                        gridPane.add(new ImageView(new Image("https://i.imgur.com/LXorSui.png")), prevX, prevY, 1, 1);
+                        gridPane.add(new ImageView(new Image("https://i.imgur.com/I15r48j.png")), currX, currY, 1, 1);
+                        piece.displayArray();
                     }
                 }
             }
@@ -127,9 +138,9 @@ public class Board extends Application {
         gridPane.add(bKnight2, 6, 0, 1, 1);
         gridPane.add(bRook2, 7, 0, 1, 1);
 
-        for(int i = 2; i <= 5; i++) {
+        for(int row = 2; row <= 5; row++) {
             for(int col = 0; col < 8; col++) {
-                gridPane.add(new ImageView(new Image("https://i.imgur.com/LXorSui.png")), col, i, 1, 1);
+                gridPane.add(new ImageView(new Image("https://i.imgur.com/LXorSui.png")), col, row, 1, 1);
             }
         }
 

@@ -10,8 +10,7 @@ public class Click {
             this.click = 1;
         }
     }
-    public int getClicks(){
-        return click;
-    }
+    public void setClick(int click){ this.click = click; }
+    public int getClicks(){ return click; }
 
 }
