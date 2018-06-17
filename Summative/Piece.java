@@ -128,5 +128,43 @@ public class Piece {
         }
     }
 
+    public void makeMove(int currX, int currY, int prevX, int prevY){
+        System.out.println("Running make move");
+        if(canMove(currX, currY, prevX, prevY)){
+            boardArray[currY][currX] = boardArray[prevY][prevX];
+            boardArray[prevY][prevX] = null;
+        }
+    }
+
+    public boolean canMove(int currX, int currY, int prevX, int prevY){
+        System.out.println("Running can move");
+        if(boardArray[prevY][prevX] instanceof PiecePawn){
+            System.out.println("issa a pawn");
+            return ( ((PiecePawn) boardArray[prevY][prevX]).canMoveDiagonal(currX, currY, prevX, prevY) ||
+                     ((PiecePawn) boardArray[prevY][prevX]).canMoveOneSpace(currX, currY, prevX, prevY) ||
+                     ((PiecePawn) boardArray[prevY][prevX]).canMoveTwoSpaces(currX, currY, prevX, prevY) );
+        }else if(boardArray[prevY][prevX] instanceof PieceKnight){
+            return ( ((PieceKnight) boardArray[prevY][prevX]).canMoveL(currX, currY, prevX, prevY) );
+        }else if(boardArray[prevY][prevX] instanceof PieceBishop){
+            return ( ((PieceQueen) boardArray[prevY][prevX]).canMoveDiagonal(currX, currY, prevX, prevY) );
+        }else if(boardArray[prevY][prevX] instanceof PieceRook){
+            return ( ((PieceQueen) boardArray[prevY][prevX]).canMoveVertical(currX, currY, prevX, prevY) ||
+                    ((PieceQueen) boardArray[prevY][prevX]).canMoveHorizontal(currX, currY, prevX, prevY) );
+        }else if(boardArray[prevY][prevX] instanceof PieceQueen){
+            return ( ((PieceQueen) boardArray[prevY][prevX]).canMoveVertical(currX, currY, prevX, prevY) ||
+                    ((PieceQueen) boardArray[prevY][prevX]).canMoveHorizontal(currX, currY, prevX, prevY) ||
+                    ((PieceQueen) boardArray[prevY][prevX]).canMoveDiagonal(currX, currY, prevX, prevY) );
+        }
+        System.out.println("finna return false");
+        return false;
+    }
+
+    public boolean whiteCheck(){
+        return true;
+    }
+    public boolean blackCheck() {
+        return true;
+    }
+
 
 }

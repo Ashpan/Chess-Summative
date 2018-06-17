@@ -51,10 +51,10 @@ public class Board extends Application {
                     currY = yCoord;
                     System.out.println("acc Prev: " + prevX + ", " + prevY);
                     System.out.println("Curr: " + currX + ", " + currY);
-                    if(true){
-                        piece.displayArray();
-                        updateBoard(gridPane, piece);
-                    }
+                    piece.makeMove(currX, currY, prevX, prevY);
+                    piece.displayArray();
+                    updateBoard(gridPane, piece);
+
                 }
             }
         });
