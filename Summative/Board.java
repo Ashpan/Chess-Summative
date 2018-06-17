@@ -185,8 +185,8 @@ public class Board extends Application {
                     gridpane.add(new ImageView(((PieceKing) currentPiece).getImage()), x, y);
                 }else if(Piece.boardArray[x][y] == null){
                     gridpane.add(new ImageView(new Image("https://i.imgur.com/LXorSui.png")), x, y);
-
                 }
+
             }
         }
         return gridpane;
