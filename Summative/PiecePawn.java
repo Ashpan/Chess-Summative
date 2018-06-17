@@ -2,17 +2,16 @@ import javafx.scene.image.Image;
 
 public class PiecePawn extends Piece {
 
-    public int xCoord, yCoord;
+    private int xCoord, yCoord;
     public int moves;
     public Image image;
+    private static boolean isBlack;
 
-    PiecePawn(int xCoord, int yCoord, Image image) {
+    PiecePawn(int xCoord, int yCoord, boolean isBlack, Image image) {
         this.xCoord = xCoord;
         this.yCoord = yCoord;
         this.image = image;
-        Piece.boardArray[xCoord][yCoord] = this;
-        System.out.println("PiecePawn");
-        System.out.println();
+        this.isBlack = isBlack;
     }
     public int getX(){
         return this.xCoord;
@@ -21,6 +20,8 @@ public class PiecePawn extends Piece {
         return this.yCoord;
     }
 
+    public static boolean isBlack() { return isBlack; }
+    public Image getImage() { return image; }
     public boolean canMoveDiagonal(int currX, int currY, int prevX, int prevY) {
 
         // currX/Y -> position that the user wants the pieces to go to
