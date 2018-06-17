@@ -1,12 +1,10 @@
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.GridPane;
 
 public class Piece {
 
     public static Piece[][] boardArray = new Piece[8][8];
 
-    public void init(){
+    public static void init(){
 
         PiecePawn bp1 = new PiecePawn(0, 1, new Image("https://i.imgur.com/IR1asxl.png"));
         PiecePawn bp2 = new PiecePawn(1, 1, new Image("https://i.imgur.com/IR1asxl.png"));
@@ -76,7 +74,7 @@ public class Piece {
 //        boardArray[0][0] = null;
     }
 
-    public void displayArray(){
+    public static void displayArray(){
         for(int i = 0; i < boardArray[1].length; i++){
             for(int j = 0; j < boardArray.length; j++){
                 System.out.print(boardArray[i][j] + ", ");
@@ -85,7 +83,7 @@ public class Piece {
         }
     }
 
-    public boolean exists(int xCoord, int yCoord) {
+    public static boolean exists(int xCoord, int yCoord) {
         if (boardArray[yCoord][xCoord] != null) {
             return true;
         } else {
@@ -93,34 +91,5 @@ public class Piece {
         }
     }
 
-    public GridPane updateBoard(GridPane gridpane, Piece piece){
-        Image background = new Image("https://i.imgur.com/vnNyRP3.png");
-        Image whitePawn = new Image("https://i.imgur.com/I15r48j.png");
-        Image blackPawn = new Image("https://i.imgur.com/IR1asxl.png");
-        Image whiteKnight = new Image("https://i.imgur.com/PYMOTu6.png");
-        Image blackKnight = new Image("https://i.imgur.com/JtHhDdK.png");
-        Image whiteRook = new Image("https://i.imgur.com/Jx5SEs8.png");
-        Image blackRook = new Image("https://i.imgur.com/OPBhfr9.png");
-        Image whiteBishop = new Image("https://i.imgur.com/rzBdMfr.png");
-        Image blackBishop = new Image("https://i.imgur.com/brIfuCw.png");
-        Image whiteQueen = new Image("https://i.imgur.com/P0StNH9.png");
-        Image blackQueen = new Image("https://i.imgur.com/1iLiq2G.png");
-        Image whiteKing = new Image("https://i.imgur.com/nWpexOt.png");
-        Image blackKing = new Image("https://i.imgur.com/Pz2Xg9Y.png");
-        gridpane.getChildren().removeAll();
-//            System.out.println(piece.boardArray[6][0] instanceof PiecePawn);
-        for(int y = 0; y < boardArray.length; y++){
-            int x = 0;
-            for (Piece i : boardArray[y]){
-                System.out.println(i.);
-                if(boardArray[y][x] instanceof PiecePawn && boardArray[y][x].isBlack){
-                    gridpane.add(new ImageView(blackPawn), x, y, 1, 1);
-                }else{
-                    gridpane.add(new ImageView(whitePawn), x, y, 1, 1);
-                }
-                x++;
-            }
-        }
-        return gridpane;
-    }
+
 }

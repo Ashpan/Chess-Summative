@@ -2,9 +2,9 @@ import javafx.scene.image.Image;
 
 public class PiecePawn extends Piece {
 
-    public int xCoord, yCoord;
+    public static int xCoord, yCoord;
 //    public int moves;
-    public Image image;
+    public static Image image;
 
     PiecePawn(int xCoord, int yCoord, Image image) {
         this.xCoord = xCoord;
@@ -20,7 +20,10 @@ public class PiecePawn extends Piece {
     public int getY(){
         return this.yCoord;
     }
-    public boolean isBlack() { return true; }
+
+    public static boolean isBlack() { return true; }
+
+
     public boolean canMoveDiagonal() { return true; }
     public boolean canMoveOneSpace() { return true; }
     public boolean canMoveTwoSpaces() { return true; }

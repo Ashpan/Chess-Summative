@@ -20,6 +20,8 @@ public class PieceBishop extends Piece {
     public int getY(){
         return this.yCoord;
     }
+    public boolean isBlack() { return true; }
+
     public boolean canMoveDiagonal() { return true; }
 
 }
