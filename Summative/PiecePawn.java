@@ -2,17 +2,17 @@ import javafx.scene.image.Image;
 
 public class PiecePawn extends Piece {
 
-    public static int xCoord, yCoord;
-//    public int moves;
-    public static Image image;
+    private int xCoord, yCoord;
+    public int moves;
+    public Image image;
+    private static boolean isBlack;
 
-    PiecePawn(int xCoord, int yCoord, Image image) {
+    PiecePawn(int xCoord, int yCoord, boolean isBlack, Image image) {
         this.xCoord = xCoord;
         this.yCoord = yCoord;
         this.image = image;
+        this.isBlack = isBlack;
 //        Piece.boardArray[xCoord][yCoord] = this;
-        System.out.println("PiecePawn");
-        System.out.println();
     }
     public int getX(){
         return this.xCoord;
@@ -21,11 +21,10 @@ public class PiecePawn extends Piece {
         return this.yCoord;
     }
 
-    public static boolean isBlack() { return true; }
+    public static boolean isBlack() { return isBlack; }
+    public Image getImage() { return image; }
 
 
     public boolean canMoveDiagonal() { return true; }
-    public boolean canMoveOneSpace() { return true; }
-    public boolean canMoveTwoSpaces() { return true; }
 
 }
