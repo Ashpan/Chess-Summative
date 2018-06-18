@@ -81,7 +81,6 @@ public class PieceQueen extends Piece {
         return true;
 
     }
-
     public boolean canMoveHorizontal(int currX, int currY, int prevX, int prevY) {
 
         // currX/Y -> position that the user wants the pieces to go to
