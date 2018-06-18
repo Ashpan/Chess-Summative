@@ -174,12 +174,18 @@ public class Piece {
                 }
             }
         }
-        System.out.println("k: " + (whitePawnCheck(kingX, kingY, whiteKing) && whiteRookCheck(kingX, kingY, whiteKing) && whiteBishopCheck(kingX, kingY, whiteKing) && whiteKnightCheck(kingX, kingY, whiteKing)&& whiteQueenCheck(kingX, kingY, whiteKing)));
-            return (whitePawnCheck(kingX, kingY, whiteKing) && whiteRookCheck(kingX, kingY, whiteKing) && whiteBishopCheck(kingX, kingY, whiteKing) && whiteKnightCheck(kingX, kingY, whiteKing)&& whiteQueenCheck(kingX, kingY, whiteKing));
+        System.out.println("k: " + (whitePawnCheck(kingX, kingY, whiteKing, 1, 1) ||
+                whiteRookCheck(kingX, kingY, whiteKing, 1, 1) ||
+                whiteBishopCheck(kingX, kingY, whiteKing, 1, 1) ||
+                whiteKnightCheck(kingX, kingY, whiteKing, 1, 1) ||
+                whiteQueenCheck(kingX, kingY, whiteKing, 1, 1)));
+            return (whitePawnCheck(kingX, kingY, whiteKing, 1, 1) ||
+                    whiteRookCheck(kingX, kingY, whiteKing, 1, 1) ||
+                    whiteBishopCheck(kingX, kingY, whiteKing, 1, 1) ||
+                    whiteKnightCheck(kingX, kingY, whiteKing, 1, 1) ||
+                    whiteQueenCheck(kingX, kingY, whiteKing, 1, 1));
         }
-    private boolean whitePawnCheck(int kingX, int kingY, PieceKing whiteKing) {
-        System.out.println(boardArray.length);
-        System.out.println(boardArray[1].length);
+    private boolean whitePawnCheck(int kingX, int kingY, PieceKing whiteKing, int startX, int startY) {
         for (int y = 0; y < boardArray.length; y++) {
             for (int x = 0; x < boardArray[1].length; x++) {
                 Piece arrayPiece = boardArray[y][x];
@@ -197,22 +203,22 @@ public class Piece {
         }
         return false;
     }
-    private boolean whiteRookCheck(int kingX, int kingY, PieceKing whiteKing){
-        for(int y = 0; y < boardArray.length; y++){
-            for(int x = 0; x < boardArray[1].length; x++) {
+    private boolean whiteRookCheck(int kingX, int kingY, PieceKing whiteKing, int startX, int startY){
+        for(int y = startY; y < boardArray.length; y++){
+            for(int x = startX; x < boardArray[1].length; x++) {
                 Piece arrayPiece = boardArray[y][x];
                 if((arrayPiece instanceof PieceRook) && (((PieceRook) arrayPiece).isBlack())){
                     if(x == kingX){ //rook is in line vertically lined up w/ king
                         if(y < kingY) {
                             for (int a = y+1; a < kingY; a++){
                                 if(boardArray[a][x] != null){
-                                    return false;
+                                    return whiteRookCheck(kingX, kingY, whiteKing, x+1, y);
                                 }
                             }
                         }else{
                             for (int a = kingY + 1; a < y; a++){
                                 if(boardArray[a][x] != null){
-                                    return false;
+                                    return whiteRookCheck(kingX, kingY, whiteKing, x+1, y);
                                 }
                             }
                         }
@@ -220,18 +226,18 @@ public class Piece {
                         if(x < kingX) {
                             for (int a = x+1; a < kingX; a++){
                                 if(boardArray[y][a] != null){
-                                    return false;
+                                    return whiteRookCheck(kingX, kingY, whiteKing, x+1, y);
                                 }
                             }
                         }else{
                             for (int a = kingX + 1; a < x; a++){
                                 if(boardArray[y][a] != null){
-                                    return false;
+                                    return whiteRookCheck(kingX, kingY, whiteKing, x+1, y);
                                 }
                             }
                         }
                     }else{
-                        return false;
+                        return whiteRookCheck(kingX, kingY, whiteKing, x+1, y);
                     }
                     return true;
                 }
@@ -239,39 +245,39 @@ public class Piece {
         }
         return false;
     }
-    private boolean whiteBishopCheck(int kingX, int kingY, PieceKing whiteKing){
-        for(int y = 0; y < boardArray.length; y++){
-            for(int x = 0; x < boardArray[1].length; x++) {
+    private boolean whiteBishopCheck(int kingX, int kingY, PieceKing whiteKing, int startX, int startY){
+        for(int y = startY; y < boardArray.length; y++){
+            for(int x = startX; x < boardArray[1].length; x++) {
                 Piece arrayPiece = boardArray[y][x];
                 if((arrayPiece instanceof PieceBishop) && (((PieceBishop) arrayPiece).isBlack())){
                     if(Math.abs(x - kingX) == (Math.abs(y - kingY))){ //bishop is horizontally lined up w/ king
                         if(y < kingY && x < kingX) {
                             for (int a = 1; a < Math.abs(y-kingY); a++){
                                 if(boardArray[y+a][x+a] != null){
-                                    return false;
+                                    return whiteBishopCheck(kingX, kingY, whiteKing, x+1, y);
                                 }
                             }
                         }else if(y < kingY && x > kingX) {
                             for (int a = 1; a < Math.abs(y-kingY); a++){
                                 if(boardArray[y+a][x-a] != null){
-                                    return false;
+                                    return whiteBishopCheck(kingX, kingY, whiteKing, x+1, y);
                                 }
                             }
                         }else if(y > kingY && x < kingX) {
                             for (int a = 1; a < Math.abs(y-kingY); a++){
                                 if(boardArray[y-a][x+a] != null){
-                                    return false;
+                                    return whiteBishopCheck(kingX, kingY, whiteKing, x+1, y);
                                 }
                             }
                         }else if(y > kingY && x > kingX) {
                             for (int a = 1; a < Math.abs(y - kingY); a++) {
-                                if (boardArray[y + a][x - a] != null) {
-                                    return false;
+                                if (boardArray[y - a][x - a] != null) {
+                                    return whiteBishopCheck(kingX, kingY, whiteKing, x+1, y);
                                 }
                             }
                         }
                     }else{
-                        return false;
+                        return whiteBishopCheck(kingX, kingY, whiteKing, x+1, y);
                     }
                     return true;
                 }
@@ -279,7 +285,7 @@ public class Piece {
         }
         return false;
     }
-    private boolean whiteKnightCheck(int kingX, int kingY, PieceKing whiteKing){
+    private boolean whiteKnightCheck(int kingX, int kingY, PieceKing whiteKing, int startX, int startY){
         for(int y = 0; y < boardArray.length; y++){
             for(int x = 0; x < boardArray[1].length; x++) {
                 Piece arrayPiece = boardArray[y][x];
@@ -294,16 +300,16 @@ public class Piece {
                             x - 1 == kingX && y - 2 == kingY ){
                         return true;
                     }else{
-                        return false;
+                        return whiteKnightCheck(kingX, kingY, whiteKing, x+1, y);
                     }
                 }
             }
         }
         return false;
     }
-    private boolean whiteQueenCheck(int kingX, int kingY, PieceKing whiteKing){
-        for(int y = 0; y < boardArray.length; y++){
-            for(int x = 0; x < boardArray[1].length; x++) {
+    private boolean whiteQueenCheck(int kingX, int kingY, PieceKing whiteKing, int startX, int startY){
+        for(int y = kingY; y < boardArray.length; y++){
+            for(int x = kingX; x < boardArray[1].length; x++) {
                 Piece arrayPiece = boardArray[y][x];
 //                System.out.println(x + ", " + y);
                 if((arrayPiece instanceof PieceQueen) && (((PieceQueen) arrayPiece).isBlack())){
@@ -312,13 +318,13 @@ public class Piece {
                         if(y < kingY) {
                             for (int a = y+1; a < kingY; a++){
                                 if(boardArray[a][x] != null){
-                                    return false;
+                                    return whiteQueenCheck(kingX, kingY, whiteKing, x+1, y);
                                 }
                             }
                         }else{
                             for (int a = kingY + 1; a < y; a++){
                                 if(boardArray[a][x] != null){
-                                    return false;
+                                    return whiteQueenCheck(kingX, kingY, whiteKing, x+1, y);
                                 }
                             }
                         }
@@ -327,13 +333,13 @@ public class Piece {
                         if(x < kingX) {
                             for (int a = x+1; a < kingX; a++){
                                 if(boardArray[y][a] != null){
-                                    return false;
+                                    return whiteQueenCheck(kingX, kingY, whiteKing, x+1, y);
                                 }
                             }
                         }else{
                             for (int a = kingX + 1; a < x; a++){
                                 if(boardArray[y][a] != null){
-                                    return false;
+                                    return whiteQueenCheck(kingX, kingY, whiteKing, x+1, y);
                                 }
                             }
                         }
@@ -342,31 +348,31 @@ public class Piece {
                             if(y < kingY && x < kingX) {
                                 for (int a = 1; a < Math.abs(y-kingY); a++){
                                     if(boardArray[y+a][x+a] != null){
-                                        return false;
+                                        return whiteQueenCheck(kingX, kingY, whiteKing, x+1, y);
                                     }
                                 }
                             }else if(y < kingY && x > kingX) {
                                 System.out.println("top right");
                                 for (int a = 1; a < Math.abs(y-kingY); a++){
                                     if(boardArray[y+a][x-a] != null){
-                                        return false;
+                                        return whiteQueenCheck(kingX, kingY, whiteKing, x+1, y);
                                     }
                                 }
                             }else if(y > kingY && x < kingX) {
                                 for (int a = 1; a < Math.abs(y-kingY); a++){
                                     if(boardArray[y-a][x+a] != null){
-                                        return false;
+                                        return whiteQueenCheck(kingX, kingY, whiteKing, x+1, y);
                                     }
                                 }
                             }else if(y > kingY && x > kingX) {
                                 for (int a = 1; a < Math.abs(y - kingY); a++) {
                                     if (boardArray[y + a][x - a] != null) {
-                                        return false;
+                                        return whiteQueenCheck(kingX, kingY, whiteKing, x+1, y);
                                     }
                                 }
                             }
                         }else{
-                            return false;
+                            return whiteQueenCheck(kingX, kingY, whiteKing, x+1, y);
                         }
                     }
                     return true;
@@ -378,11 +384,9 @@ public class Piece {
         return false;
     }
 
-    private boolean blackPawnCheck(int kingX, int kingY, PieceKing blackKing) {
-        System.out.println(boardArray.length);
-        System.out.println(boardArray[1].length);
-        for (int y = 0; y < boardArray.length; y++) {
-            for (int x = 0; x < boardArray[1].length; x++) {
+    private boolean blackPawnCheck(int kingX, int kingY, PieceKing blackKing, int startX, int startY) {
+        for (int y = startY; y < boardArray.length; y++) {
+            for (int x = startX; x < boardArray[1].length; x++) {
                 Piece arrayPiece = boardArray[y][x];
                 if ((arrayPiece instanceof PiecePawn) && !((PiecePawn) arrayPiece).isBlack()) {
 //                    System.out.println((x+1) + ", " + (y+1));
@@ -398,22 +402,22 @@ public class Piece {
         }
         return false;
     }
-    private boolean blackRookCheck(int kingX, int kingY, PieceKing blackKing){
-        for(int y = 0; y < boardArray.length; y++){
-            for(int x = 0; x < boardArray[1].length; x++) {
+    private boolean blackRookCheck(int kingX, int kingY, PieceKing blackKing, int startX, int startY){
+        for (int y = startY; y < boardArray.length; y++) {
+            for (int x = startX; x < boardArray[1].length; x++) {
                 Piece arrayPiece = boardArray[y][x];
                 if((arrayPiece instanceof PieceRook) && !(((PieceRook) arrayPiece).isBlack())){
                     if(x == kingX){ //rook is in line vertically lined up w/ king
                         if(y < kingY) {
                             for (int a = y+1; a < kingY; a++){
                                 if(boardArray[a][x] != null){
-                                    return false;
+                                    return blackRookCheck(kingX, kingY, blackKing, x+1, y);
                                 }
                             }
                         }else{
                             for (int a = kingY + 1; a < y; a++){
                                 if(boardArray[a][x] != null){
-                                    return false;
+                                    return blackRookCheck(kingX, kingY, blackKing, x+1, y);
                                 }
                             }
                         }
@@ -421,18 +425,18 @@ public class Piece {
                         if(x < kingX) {
                             for (int a = x+1; a < kingX; a++){
                                 if(boardArray[y][a] != null){
-                                    return false;
+                                    return blackRookCheck(kingX, kingY, blackKing, x+1, y);
                                 }
                             }
                         }else{
                             for (int a = kingX + 1; a < x; a++){
                                 if(boardArray[y][a] != null){
-                                    return false;
+                                    return blackRookCheck(kingX, kingY, blackKing, x+1, y);
                                 }
                             }
                         }
                     }else{
-                        return false;
+                        return blackRookCheck(kingX, kingY, blackKing, x+1, y);
                     }
                     return true;
                 }
@@ -440,40 +444,41 @@ public class Piece {
         }
         return false;
     }
-    private boolean blackBishopCheck(int kingX, int kingY, PieceKing blackKing){
-        for(int y = 0; y < boardArray.length; y++){
-            for(int x = 0; x < boardArray[1].length; x++) {
+    private boolean blackBishopCheck(int kingX, int kingY, PieceKing blackKing, int startX, int startY){
+        for (int y = startY; y < boardArray.length; y++) {
+            for (int x = startX; x < boardArray[1].length; x++) {
                 Piece arrayPiece = boardArray[y][x];
                 if((arrayPiece instanceof PieceBishop) && !(((PieceBishop) arrayPiece).isBlack())){
+                    System.out.println("Bishop: " + x + ", " + y);
                     if(Math.abs(x - kingX) == (Math.abs(y - kingY))){ //bishop is horizontally lined up w/ king
                         if(y < kingY && x < kingX) {
                             for (int a = 1; a < Math.abs(y-kingY); a++){
                                 if(boardArray[y+a][x+a] != null){
-                                    return false;
+                                    return blackBishopCheck(kingX, kingY, blackKing, x+1, y);
                                 }
                             }
                         }else if(y < kingY && x > kingX) {
                             for (int a = 1; a < Math.abs(y-kingY); a++){
                                 if(boardArray[y+a][x-a] != null){
-                                    return false;
+                                    return blackBishopCheck(kingX, kingY, blackKing, x+1, y);
                                 }
                             }
                         }else if(y > kingY && x < kingX) {
                             for (int a = 1; a < Math.abs(y-kingY); a++){
                                 if(boardArray[y-a][x+a] != null){
-                                    return false;
+                                    return blackBishopCheck(kingX, kingY, blackKing, x+1, y);
                                 }
                             }
                         }else if(y > kingY && x > kingX) {
                             System.out.println("greater x2");
                             for (int a = 1; a < Math.abs(y - kingY); a++) {
-                                if (boardArray[y + a][x - a] != null) {
-                                    return false;
+                                if (boardArray[y - a][x - a] != null) {
+                                    return blackBishopCheck(kingX, kingY, blackKing, x+1, y);
                                 }
                             }
                         }
                     }else{
-                        return false;
+                        return blackBishopCheck(kingX, kingY, blackKing, x+1, y);
                     }
                     return true;
                 }
@@ -481,9 +486,9 @@ public class Piece {
         }
         return false;
     }
-    private boolean blackKnightCheck(int kingX, int kingY, PieceKing blackKing){
-        for(int y = 0; y < boardArray.length; y++){
-            for(int x = 0; x < boardArray[1].length; x++) {
+    private boolean blackKnightCheck(int kingX, int kingY, PieceKing blackKing, int startX, int startY){
+        for (int y = startY; y < boardArray.length; y++) {
+            for (int x = startX+1; x < boardArray[1].length; x++) {
                 Piece arrayPiece = boardArray[y][x];
                 if((arrayPiece instanceof PieceKnight) && !(((PieceKnight) arrayPiece).isBlack())){
                     if( x + 2 == kingX && y + 1 == kingY ||
@@ -503,9 +508,9 @@ public class Piece {
         }
         return false;
     }
-    private boolean blackQueenCheck(int kingX, int kingY, PieceKing blackKing){
-        for(int y = 0; y < boardArray.length; y++){
-            for(int x = 0; x < boardArray[1].length; x++) {
+    private boolean blackQueenCheck(int kingX, int kingY, PieceKing blackKing, int startX, int startY){
+        for (int y = startY; y < boardArray.length; y++) {
+            for (int x = startX; x < boardArray[1].length; x++) {
                 Piece arrayPiece = boardArray[y][x];
 //                System.out.println(x + ", " + y);
                 if((arrayPiece instanceof PieceQueen) && !(((PieceQueen) arrayPiece).isBlack())){
@@ -595,8 +600,17 @@ public class Piece {
                 }
             }
         }
-        System.out.println("k: " + (blackPawnCheck(kingX, kingY, blackKing) && blackRookCheck(kingX, kingY, blackKing) && blackBishopCheck(kingX, kingY, blackKing) && blackKnightCheck(kingX, kingY, blackKing)&& blackQueenCheck(kingX, kingY, blackKing)));
-        return (blackPawnCheck(kingX, kingY, blackKing) && blackRookCheck(kingX, kingY, blackKing) && blackBishopCheck(kingX, kingY, blackKing) && blackKnightCheck(kingX, kingY, blackKing)&& blackQueenCheck(kingX, kingY, blackKing));
+        System.out.println("k: " + (blackPawnCheck(kingX, kingY, blackKing, 0 ,0) ||
+                blackRookCheck(kingX, kingY, blackKing, 0 ,0) ||
+                blackBishopCheck(kingX, kingY, blackKing, 0 ,0) ||
+                blackKnightCheck(kingX, kingY, blackKing, 0 ,0) ||
+                blackQueenCheck(kingX, kingY, blackKing, 0 ,0)));
+
+        return (blackPawnCheck(kingX, kingY, blackKing, 0 ,0) ||
+                blackRookCheck(kingX, kingY, blackKing, 0 ,0) ||
+                blackBishopCheck(kingX, kingY, blackKing, 0 ,0) ||
+                blackKnightCheck(kingX, kingY, blackKing, 0 ,0) ||
+                blackQueenCheck(kingX, kingY, blackKing, 0 ,0));
     }
 
 
