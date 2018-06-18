@@ -1,15 +1,23 @@
 import javafx.scene.image.Image;
 
+enum Player {
+    black, white
+}
+
 public class Piece {
 
     public static Piece[][] boardArray = new Piece[8][8];
     private boolean isBlack;
+    Player currPlayer;
 
     // empty constructor for initializing in Board class
-    Piece() { }
+    Piece() {
+        currPlayer = Player.white;
+    }
 
     Piece(boolean isBlack) {
 
+        currPlayer = Player.white;
         this.isBlack = isBlack;
 
     }
@@ -82,38 +90,38 @@ public class Piece {
         boardArray[wn2.getY()][wn2.getX()] = wn2;
         boardArray[wr2.getY()][wr2.getX()] = wr2;
 
-        System.out.println(bp1.getX() + ", " + bp1.getY() + " | " + bp1.isBlack());
-        System.out.println(bp2.getX() + ", " + bp2.getY());
-        System.out.println(bp3.getX() + ", " + bp3.getY());
-        System.out.println(bp4.getX() + ", " + bp4.getY());
-        System.out.println(bp5.getX() + ", " + bp5.getY());
-        System.out.println(bp6.getX() + ", " + bp6.getY());
-        System.out.println(bp7.getX() + ", " + bp7.getY());
-        System.out.println(bp8.getX() + ", " + bp8.getY());
-        System.out.println(br1.getX() + ", " + br1.getY());
-        System.out.println(bn1.getX() + ", " + bn1.getY());
-        System.out.println(bb1.getX() + ", " + bb1.getY());
-        System.out.println(bq1.getX() + ", " + bq1.getY());
-        System.out.println(bk1.getX() + ", " + bk1.getY());
-        System.out.println(bb2.getX() + ", " + bb2.getY());
-        System.out.println(bn2.getX() + ", " + bn2.getY());
-        System.out.println(br2.getX() + ", " + br2.getY());
-        System.out.println(wp1.getX() + ", " + wp1.getY());
-        System.out.println(wp2.getX() + ", " + wp2.getY());
-        System.out.println(wp3.getX() + ", " + wp3.getY());
-        System.out.println(wp4.getX() + ", " + wp4.getY());
-        System.out.println(wp5.getX() + ", " + wp5.getY());
-        System.out.println(wp6.getX() + ", " + wp6.getY());
-        System.out.println(wp7.getX() + ", " + wp7.getY());
-        System.out.println(wp8.getX() + ", " + wp8.getY());
-        System.out.println(wr1.getX() + ", " + wr1.getY());
-        System.out.println(wn1.getX() + ", " + wn1.getY());
-        System.out.println(wb1.getX() + ", " + wb1.getY());
-        System.out.println(wq1.getX() + ", " + wq1.getY());
-        System.out.println(wk1.getX() + ", " + wk1.getY());
-        System.out.println(wb2.getX() + ", " + wb2.getY());
-        System.out.println(wn2.getX() + ", " + wn2.getY());
-        System.out.println(wr2.getX() + ", " + wr2.getY());
+//        System.out.println(bp1.getX() + ", " + bp1.getY() + " | " + bp1.isBlack());
+//        System.out.println(bp2.getX() + ", " + bp2.getY());
+//        System.out.println(bp3.getX() + ", " + bp3.getY());
+//        System.out.println(bp4.getX() + ", " + bp4.getY());
+//        System.out.println(bp5.getX() + ", " + bp5.getY());
+//        System.out.println(bp6.getX() + ", " + bp6.getY());
+//        System.out.println(bp7.getX() + ", " + bp7.getY());
+//        System.out.println(bp8.getX() + ", " + bp8.getY());
+//        System.out.println(br1.getX() + ", " + br1.getY());
+//        System.out.println(bn1.getX() + ", " + bn1.getY());
+//        System.out.println(bb1.getX() + ", " + bb1.getY());
+//        System.out.println(bq1.getX() + ", " + bq1.getY());
+//        System.out.println(bk1.getX() + ", " + bk1.getY());
+//        System.out.println(bb2.getX() + ", " + bb2.getY());
+//        System.out.println(bn2.getX() + ", " + bn2.getY());
+//        System.out.println(br2.getX() + ", " + br2.getY());
+//        System.out.println(wp1.getX() + ", " + wp1.getY());
+//        System.out.println(wp2.getX() + ", " + wp2.getY());
+//        System.out.println(wp3.getX() + ", " + wp3.getY());
+//        System.out.println(wp4.getX() + ", " + wp4.getY());
+//        System.out.println(wp5.getX() + ", " + wp5.getY());
+//        System.out.println(wp6.getX() + ", " + wp6.getY());
+//        System.out.println(wp7.getX() + ", " + wp7.getY());
+//        System.out.println(wp8.getX() + ", " + wp8.getY());
+//        System.out.println(wr1.getX() + ", " + wr1.getY());
+//        System.out.println(wn1.getX() + ", " + wn1.getY());
+//        System.out.println(wb1.getX() + ", " + wb1.getY());
+//        System.out.println(wq1.getX() + ", " + wq1.getY());
+//        System.out.println(wk1.getX() + ", " + wk1.getY());
+//        System.out.println(wb2.getX() + ", " + wb2.getY());
+//        System.out.println(wn2.getX() + ", " + wn2.getY());
+//        System.out.println(wr2.getX() + ", " + wr2.getY());
 
         
     }
@@ -138,44 +146,73 @@ public class Piece {
     }
 
     public void makeMove(int currX, int currY, int prevX, int prevY){
-        System.out.println("Running make move");
-        if(canMove(currX, currY, prevX, prevY)){
+        if(canMove(currX, currY, prevX, prevY)) {
+            System.out.println("moved played by: " + currPlayer);
+            currPlayer = currPlayer == Player.white ? Player.black : Player.white;
             boardArray[currY][currX] = boardArray[prevY][prevX];
             boardArray[prevY][prevX] = null;
         }
     }
 
     public boolean canMove(int currX, int currY, int prevX, int prevY){
-        System.out.println("Running can move");
 
-        if (!((boardArray[currY][currX] != null && boardArray[currY][currX].isBlack() && boardArray[prevY][prevY].isBlack)
-                || (boardArray[currY][currX] != null && !(boardArray[currY][currX].isBlack()) && !(boardArray[prevY][prevY].isBlack))))  {
+        if ((currPlayer == Player.white) && (!(boardArray[prevY][prevX].isBlack))) {
+            // white
 
-            if(boardArray[prevY][prevX] instanceof PiecePawn){
-                return ( ((PiecePawn) boardArray[prevY][prevX]).canMoveDiagonal(currX, currY, prevX, prevY) ||
-                        ((PiecePawn) boardArray[prevY][prevX]).canMoveOneSpace(currX, currY, prevX, prevY) ||
-                        ((PiecePawn) boardArray[prevY][prevX]).canMoveTwoSpaces(currX, currY, prevX, prevY) );
-            }else if(boardArray[prevY][prevX] instanceof PieceKnight){
-                return ( ((PieceKnight) boardArray[prevY][prevX]).canMoveL(currX, currY, prevX, prevY) );
-            }else if(boardArray[prevY][prevX] instanceof PieceBishop){
-                return ( ((PieceQueen) boardArray[prevY][prevX]).canMoveDiagonal(currX, currY, prevX, prevY) );
-            }else if(boardArray[prevY][prevX] instanceof PieceRook){
-                return ( ((PieceQueen) boardArray[prevY][prevX]).canMoveVertical(currX, currY, prevX, prevY) ||
-                        ((PieceQueen) boardArray[prevY][prevX]).canMoveHorizontal(currX, currY, prevX, prevY) );
-            }else if(boardArray[prevY][prevX] instanceof PieceQueen){
-                System.out.println("vert: " + ((PieceQueen) boardArray[prevY][prevX]).canMoveVertical(currX, currY, prevX, prevY));
-                System.out.println("horz: " + ((PieceQueen) boardArray[prevY][prevX]).canMoveHorizontal(currX, currY, prevX, prevY));
-                System.out.println("diag: " + ((PieceQueen) boardArray[prevY][prevX]).canMoveDiagonal(currX, currY, prevX, prevY));
+            if (!((boardArray[currY][currX] != null && boardArray[currY][currX].isBlack() && boardArray[prevY][prevX].isBlack)
+                    || (boardArray[currY][currX] != null && !(boardArray[currY][currX].isBlack()) && !(boardArray[prevY][prevX].isBlack)))) {
 
-                return ( ((PieceQueen) boardArray[prevY][prevX]).canMoveVertical(currX, currY, prevX, prevY) ||
-                        ((PieceQueen) boardArray[prevY][prevX]).canMoveHorizontal(currX, currY, prevX, prevY) ||
-                        ((PieceQueen) boardArray[prevY][prevX]).canMoveDiagonal(currX, currY, prevX, prevY) );
+                if(boardArray[prevY][prevX] instanceof PiecePawn){
+                    return ( ((PiecePawn) boardArray[prevY][prevX]).canMoveDiagonal(currX, currY, prevX, prevY) ||
+                            ((PiecePawn) boardArray[prevY][prevX]).canMoveOneSpace(currX, currY, prevX, prevY) ||
+                            ((PiecePawn) boardArray[prevY][prevX]).canMoveTwoSpaces(currX, currY, prevX, prevY) );
+                }else if(boardArray[prevY][prevX] instanceof PieceKnight){
+                    return ( ((PieceKnight) boardArray[prevY][prevX]).canMoveL(currX, currY, prevX, prevY) );
+                }else if(boardArray[prevY][prevX] instanceof PieceBishop){
+                    return ( ((PieceQueen) boardArray[prevY][prevX]).canMoveDiagonal(currX, currY, prevX, prevY) );
+                }else if(boardArray[prevY][prevX] instanceof PieceRook){
+                    return ( ((PieceQueen) boardArray[prevY][prevX]).canMoveVertical(currX, currY, prevX, prevY) ||
+                            ((PieceQueen) boardArray[prevY][prevX]).canMoveHorizontal(currX, currY, prevX, prevY) );
+                }else if(boardArray[prevY][prevX] instanceof PieceQueen){
+                    return ( ((PieceQueen) boardArray[prevY][prevX]).canMoveVertical(currX, currY, prevX, prevY) ||
+                            ((PieceQueen) boardArray[prevY][prevX]).canMoveHorizontal(currX, currY, prevX, prevY) ||
+                            ((PieceQueen) boardArray[prevY][prevX]).canMoveDiagonal(currX, currY, prevX, prevY) );
+                }
+                return false;
+
             }
-            System.out.println("finna return false");
             return false;
 
+        } else if ((currPlayer == Player.black) && ((boardArray[prevY][prevX].isBlack))) {
+            // black
+
+            if (!((boardArray[currY][currX] != null && boardArray[currY][currX].isBlack() && boardArray[prevY][prevX].isBlack)
+                    || (boardArray[currY][currX] != null && !(boardArray[currY][currX].isBlack()) && !(boardArray[prevY][prevX].isBlack))))  {
+
+                if(boardArray[prevY][prevX] instanceof PiecePawn){
+                    return ( ((PiecePawn) boardArray[prevY][prevX]).canMoveDiagonal(currX, currY, prevX, prevY) ||
+                            ((PiecePawn) boardArray[prevY][prevX]).canMoveOneSpace(currX, currY, prevX, prevY) ||
+                            ((PiecePawn) boardArray[prevY][prevX]).canMoveTwoSpaces(currX, currY, prevX, prevY) );
+                }else if(boardArray[prevY][prevX] instanceof PieceKnight){
+                    return ( ((PieceKnight) boardArray[prevY][prevX]).canMoveL(currX, currY, prevX, prevY) );
+                }else if(boardArray[prevY][prevX] instanceof PieceBishop){
+                    return ( ((PieceQueen) boardArray[prevY][prevX]).canMoveDiagonal(currX, currY, prevX, prevY) );
+                }else if(boardArray[prevY][prevX] instanceof PieceRook){
+                    return ( ((PieceQueen) boardArray[prevY][prevX]).canMoveVertical(currX, currY, prevX, prevY) ||
+                            ((PieceQueen) boardArray[prevY][prevX]).canMoveHorizontal(currX, currY, prevX, prevY) );
+                }else if(boardArray[prevY][prevX] instanceof PieceQueen){
+                    return ( ((PieceQueen) boardArray[prevY][prevX]).canMoveVertical(currX, currY, prevX, prevY) ||
+                            ((PieceQueen) boardArray[prevY][prevX]).canMoveHorizontal(currX, currY, prevX, prevY) ||
+                            ((PieceQueen) boardArray[prevY][prevX]).canMoveDiagonal(currX, currY, prevX, prevY) );
+                }
+                return false;
+
+            }
+            return false;
+
+        } else {
+            return false;
         }
-        return false;
 
     }
 
