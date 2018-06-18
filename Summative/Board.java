@@ -41,7 +41,6 @@ public class Board extends Application {
                     if (click.getClicks() == 1) {
                         prevX = xCoord;
                         prevY = yCoord;
-                        System.out.println("Prev: " + prevX + ", " + prevY);
                     }
                 }else if(click.getClicks() == 1 && !piece.exists(xCoord, yCoord)){
                     click.setClick(0);
@@ -49,13 +48,13 @@ public class Board extends Application {
                 if (click.getClicks() == 2) {
                     currX = xCoord;
                     currY = yCoord;
-                    System.out.println("acc Prev: " + prevX + ", " + prevY);
+                    System.out.println("Prev: " + prevX + ", " + prevY);
                     System.out.println("Curr: " + currX + ", " + currY);
                     piece.makeMove(currX, currY, prevX, prevY);
-                    piece.displayArray();
+//                    piece.displayArray();
                     updateBoard(gridPane, piece);
                     piece.whiteCheck();
-                    System.out.println(piece.boardArray[0][0].getClass());
+                    piece.blackCheck();
 
                 }
             }
