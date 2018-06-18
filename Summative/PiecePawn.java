@@ -50,6 +50,7 @@ public class PiecePawn extends Piece {
     }
     public boolean canMoveOneSpace(int currX, int currY, int prevX, int prevY) {
 
+
         // currX/Y -> position that the user wants the pieces to go to
         // prevX/Y -> position that piece is currently on
 
