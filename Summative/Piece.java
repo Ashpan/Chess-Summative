@@ -148,6 +148,8 @@ public class Piece {
 
     public void makeMove(int currX, int currY, int prevX, int prevY){
         if(canMove(currX, currY, prevX, prevY)){
+            System.out.println("moved played by: " + currPlayer);
+            currPlayer = currPlayer == Player.white ? Player.black : Player.white;
             boardArray[currY][currX] = boardArray[prevY][prevX];
             boardArray[prevY][prevX] = null;
         } else {
@@ -164,6 +166,7 @@ public class Piece {
 
         if ((currPlayer == Player.white) && (!(boardArray[prevY][prevX].isBlack))) {
             // white
+            System.out.println("ran if");
 
             if (!((boardArray[currY][currX] != null && boardArray[currY][currX].isBlack() && boardArray[prevY][prevX].isBlack)
                     || (boardArray[currY][currX] != null && !(boardArray[currY][currX].isBlack()) && !(boardArray[prevY][prevX].isBlack)))) {
@@ -195,6 +198,7 @@ public class Piece {
 
         } else if ((currPlayer == Player.black) && ((boardArray[prevY][prevX].isBlack))) {
             // black
+            System.out.println("ran else if");
 
             if (!((boardArray[currY][currX] != null && boardArray[currY][currX].isBlack() && boardArray[prevY][prevX].isBlack)
                     || (boardArray[currY][currX] != null && !(boardArray[currY][currX].isBlack()) && !(boardArray[prevY][prevX].isBlack))))  {
@@ -221,6 +225,7 @@ public class Piece {
             return false;
 
         } else {
+            System.out.println("ran else");
             return false;
 
         }

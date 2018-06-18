@@ -56,15 +56,20 @@ public class PiecePawn extends Piece {
 
         if(isBlack()) {
             // black
+            System.out.println("pawn is black");
             if ((boardArray[currY][currX] == null) && (prevX == currX) && (prevY + 1 == currY)) {
+                System.out.println("pawn is black: true");
+                moves++;
                 return true;
             } else {
+                System.out.println("pawn is black: false");
                 return false;
             }
 
         } else {
             // white
             if ((boardArray[currY][currX] == null) && (prevX == currX) && (prevY - 1 == currY)) {
+                moves++;
                 return true;
             } else {
                 return false;
@@ -82,6 +87,7 @@ public class PiecePawn extends Piece {
         if(isBlack()) {
             // black
             if ((moves == 0) && (boardArray[currY][currX] == null) && (prevX == currX) && (prevY + 2 == currY)) {
+                moves++;
                 return true;
             } else {
                 return false;
@@ -90,6 +96,7 @@ public class PiecePawn extends Piece {
         } else {
             // white
             if ((moves == 0) && (boardArray[currY][currX] == null) && (currX == prevX) && (prevY - 2 == currY)) {
+                moves++;
                 return true;
             } else {
                 return false;
