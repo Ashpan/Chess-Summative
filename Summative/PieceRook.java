@@ -5,7 +5,7 @@ public class PieceRook extends PieceQueen {
     private int xCoord, yCoord;
     private int moves;
     public Image image;
-    private static boolean isBlack;
+    private boolean isBlack;
 
     PieceRook(int xCoord, int yCoord, boolean isBlack, Image image) {
         super(xCoord, yCoord, isBlack, image);
@@ -22,7 +22,7 @@ public class PieceRook extends PieceQueen {
         return this.yCoord;
     }
 
-    public static boolean isBlack() { return isBlack; }
+    public boolean isBlack() { return isBlack; }
     public Image getImage() { return image; }
 
 }

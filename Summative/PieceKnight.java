@@ -5,7 +5,7 @@ public class PieceKnight extends Piece {
     private int xCoord, yCoord;
     private int moves;
     public Image image;
-    private static boolean isBlack;
+    private boolean isBlack;
 
     PieceKnight(int xCoord, int yCoord, boolean isBlack, Image image) {
         this.xCoord = xCoord;
@@ -21,7 +21,7 @@ public class PieceKnight extends Piece {
         return this.yCoord;
     }
 
-    public static boolean isBlack() { return isBlack; }
+    public boolean isBlack() { return isBlack; }
     public Image getImage() { return image; }
 
 
