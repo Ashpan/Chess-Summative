@@ -25,7 +25,7 @@ public class PieceKnight extends Piece {
     public Image getImage() { return image; }
 
 
-    public boolean canMove(int currX, int currY, int prevX, int prevY) {
+    public boolean canMoveL(int currX, int currY, int prevX, int prevY) {
         boolean option1 = false;
         boolean option2 = false;
         boolean option3 = false;
