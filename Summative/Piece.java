@@ -353,8 +353,8 @@ public class Piece {
         return false;
     }
     private boolean whiteKnightCheck(int kingX, int kingY, PieceKing whiteKing, int startX, int startY){
-        for(int y = 0; y < boardArray.length; y++){
-            for(int x = 0; x < boardArray[1].length; x++) {
+        for(int y = startY; y < boardArray.length; y++){
+            for(int x = startX; x < boardArray[1].length; x++) {
                 Piece arrayPiece = boardArray[y][x];
                 if((arrayPiece instanceof PieceKnight) && (((PieceKnight) arrayPiece).isBlack())){
                     if( x + 2 == kingX && y + 1 == kingY ||

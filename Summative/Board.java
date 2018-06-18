@@ -55,7 +55,7 @@ public class Board extends Application {
 
                     updateBoard(gridPane, piece);
                     piece.whiteCheck();
-                    piece.xblackCheck();
+                    piece.blackCheck();
 
                 }
             }
