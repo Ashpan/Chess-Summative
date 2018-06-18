@@ -5,14 +5,11 @@ public class PieceBishop extends Piece {
     private int xCoord, yCoord;
     public int moves;
     public Image image;
-    private boolean isBlack;
 
     PieceBishop(int xCoord, int yCoord, boolean isBlack, Image image) {
         this.xCoord = xCoord;
         this.yCoord = yCoord;
         this.image = image;
-        this.isBlack = isBlack;
-//        Piece.boardArray[xCoord][yCoord] = this;
     }
     public int getX(){
         return this.xCoord;
@@ -21,7 +18,6 @@ public class PieceBishop extends Piece {
         return this.yCoord;
     }
 
-    public boolean isBlack() { return isBlack; }
     public Image getImage() { return image; }
     public boolean canMoveDiagonal(int currX, int currY, int prevX, int prevY) {
 

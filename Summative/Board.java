@@ -51,7 +51,8 @@ public class Board extends Application {
                     System.out.println("Prev: " + prevX + ", " + prevY);
                     System.out.println("Curr: " + currX + ", " + currY);
                     piece.makeMove(currX, currY, prevX, prevY);
-//                    piece.displayArray();
+                     piece.displayArray();
+
                     updateBoard(gridPane, piece);
                     piece.whiteCheck();
                     piece.xblackCheck();

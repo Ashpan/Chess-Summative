@@ -5,13 +5,12 @@ public class PiecePawn extends Piece {
     private int xCoord, yCoord;
     public int moves;
     public Image image;
-    private boolean isBlack;
 
     PiecePawn(int xCoord, int yCoord, boolean isBlack, Image image) {
+        super(isBlack);
         this.xCoord = xCoord;
         this.yCoord = yCoord;
         this.image = image;
-        this.isBlack = isBlack;
     }
     public int getX(){
         return this.xCoord;
@@ -20,14 +19,13 @@ public class PiecePawn extends Piece {
         return this.yCoord;
     }
 
-    public boolean isBlack() { return isBlack; }
     public Image getImage() { return image; }
     public boolean canMoveDiagonal(int currX, int currY, int prevX, int prevY) {
 
         // currX/Y -> position that the user wants the pieces to go to
         // prevX/Y -> position that piece is currently on
 
-        if(isBlack) {
+        if(isBlack()) {
             // black
             if ((boardArray[currY][currX] != null) && (prevX + 1 == currX) && (prevY + 1 == currY)) {
                 return true;
@@ -56,7 +54,7 @@ public class PiecePawn extends Piece {
         // currX/Y -> position that the user wants the pieces to go to
         // prevX/Y -> position that piece is currently on
 
-        if(isBlack) {
+        if(isBlack()) {
             // black
             if ((boardArray[currY][currX] == null) && (prevX == currX) && (prevY + 1 == currY)) {
                 return true;
@@ -81,7 +79,7 @@ public class PiecePawn extends Piece {
         // currX/Y -> position that the user wants the pieces to go to
         // prevX/Y -> position that piece is currently on
 
-        if(isBlack) {
+        if(isBlack()) {
             // black
             if ((moves == 0) && (boardArray[currY][currX] == null) && (prevX == currX) && (prevY + 2 == currY)) {
                 return true;
