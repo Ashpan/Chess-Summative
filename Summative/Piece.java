@@ -1,3 +1,4 @@
+import javafx.scene.control.Alert;
 import javafx.scene.image.Image;
 
 enum Player {
@@ -151,6 +152,13 @@ public class Piece {
             currPlayer = currPlayer == Player.white ? Player.black : Player.white;
             boardArray[currY][currX] = boardArray[prevY][prevX];
             boardArray[prevY][prevX] = null;
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText(null);
+            alert.setContentText("Looks like you suck at chess. Try again.");
+
+            alert.showAndWait();
         }
     }
 
