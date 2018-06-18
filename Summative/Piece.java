@@ -176,49 +176,7 @@ public class Piece {
                 }
             }
         }
-//        boolean toReturn = whitePawnCheck(kingX, kingY, whiteKing) || whiteRookCheck(kingX, kingY, whiteKing) || whiteBishopCheck(kingX, kingY, whiteKing)
-//                            || whiteKnightCheck(kingX, kingY, whiteKing) || whiteQueenCheck(kingX, kingY, whiteKing);
-
-//        for(int y = 0; y < boardArray.length; y++){
-//                    for(int x = 0; x < boardArray[1].length; x++) {
-//                        Piece arrayPiece = boardArray[x][y];
-//                            if((arrayPiece instanceof PieceRook)){
-//                            if(((PieceRook) arrayPiece).isBlack()){
-//                                if(x == kingX){ //rook is in line vertically lined up w/ king
-//                                    if(y < kingY) {
-//                                        for (int a = y+1; a < kingY; a++){
-//                                            if(boardArray[a][x] != null){
-//                                                return false;
-//                                            }
-//                                        }
-//                                    }else{
-//                                        for (int a = kingY + 1; a < y; a++){
-//                                            if(boardArray[a][x] != null){
-//                                                return false;
-//                                            }
-//                                        }
-//                                    }
-//                                }else if(y == kingY){ //rook is in line horizontally lined up w/ king
-//                                    if(x < kingX) {
-//                                        for (int a = x+1; a < kingX; a++){
-//                                            if(boardArray[y][a] != null){
-//                                                return false;
-//                                            }
-//                                        }
-//                                    }else{
-//                                        for (int a = kingX + 1; a < x; a++){
-//                                            if(boardArray[y][a] != null){
-//                                                return false;
-//                                            }
-//                                        }
-//                                    }
-//                                }
-//                            }
-//                            return true;
-//                        }
-//                    }
-//                }
-        System.out.println("k: " + whitePawnCheck(kingX, kingY, whiteKing));
+        System.out.println("k: " + whiteQueenCheck(kingX, kingY, whiteKing));
             return false;
         }
     private boolean whitePawnCheck(int kingX, int kingY, PieceKing whiteKing) {
@@ -244,39 +202,177 @@ public class Piece {
     private boolean whiteRookCheck(int kingX, int kingY, PieceKing whiteKing){
         for(int y = 0; y < boardArray.length; y++){
             for(int x = 0; x < boardArray[1].length; x++) {
-                Piece arrayPiece = boardArray[x][y];
+                Piece arrayPiece = boardArray[y][x];
                 if((arrayPiece instanceof PieceRook) && (((PieceRook) arrayPiece).isBlack())){
-                        if(x == kingX){ //rook is in line vertically lined up w/ king
-                            if(y < kingY) {
-                                for (int a = y+1; a < kingY; a++){
-                                    if(boardArray[a][x] != null){
-                                        return false;
-                                    }
-                                }
-                            }else{
-                                for (int a = kingY + 1; a < y; a++){
-                                    if(boardArray[a][x] != null){
-                                        return false;
-                                    }
-                                }
-                            }
-                        }else if(y == kingY){ //rook is in line horizontally lined up w/ king
-                            if(x < kingX) {
-                                for (int a = x+1; a < kingX; a++){
-                                    if(boardArray[y][a] != null){
-                                        return false;
-                                    }
-                                }
-                            }else{
-                                for (int a = kingX + 1; a < x; a++){
-                                    if(boardArray[y][a] != null){
-                                        return false;
-                                    }
+                    if(x == kingX){ //rook is in line vertically lined up w/ king
+                        if(y < kingY) {
+                            for (int a = y+1; a < kingY; a++){
+                                if(boardArray[a][x] != null){
+                                    return false;
                                 }
                             }
                         }else{
-                            return false;
+                            for (int a = kingY + 1; a < y; a++){
+                                if(boardArray[a][x] != null){
+                                    return false;
+                                }
+                            }
                         }
+                    }else if(y == kingY){ //rook is in line horizontally lined up w/ king
+                        if(x < kingX) {
+                            for (int a = x+1; a < kingX; a++){
+                                if(boardArray[y][a] != null){
+                                    return false;
+                                }
+                            }
+                        }else{
+                            for (int a = kingX + 1; a < x; a++){
+                                if(boardArray[y][a] != null){
+                                    return false;
+                                }
+                            }
+                        }
+                    }else{
+                        return false;
+                    }
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+    private boolean whiteBishopCheck(int kingX, int kingY, PieceKing whiteKing){
+        for(int y = 0; y < boardArray.length; y++){
+            for(int x = 0; x < boardArray[1].length; x++) {
+                Piece arrayPiece = boardArray[y][x];
+                if((arrayPiece instanceof PieceBishop) && (((PieceBishop) arrayPiece).isBlack())){
+                    if(Math.abs(x - kingX) == (Math.abs(y - kingY))){ //bishop is horizontally lined up w/ king
+                        if(y < kingY && x < kingX) {
+                            for (int a = 1; a < Math.abs(y-kingY); a++){
+                                if(boardArray[y+a][x+a] != null){
+                                    return false;
+                                }
+                            }
+                        }else if(y < kingY && x > kingX) {
+                            for (int a = 1; a < Math.abs(y-kingY); a++){
+                                if(boardArray[y+a][x-a] != null){
+                                    return false;
+                                }
+                            }
+                        }else if(y > kingY && x < kingX) {
+                            for (int a = 1; a < Math.abs(y-kingY); a++){
+                                if(boardArray[y-a][x+a] != null){
+                                    return false;
+                                }
+                            }
+                        }else if(y > kingY && x > kingX) {
+                            for (int a = 1; a < Math.abs(y - kingY); a++) {
+                                if (boardArray[y + a][x - a] != null) {
+                                    return false;
+                                }
+                            }
+                        }
+                    }else{
+                        return false;
+                    }
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+    private boolean whiteKnightCheck(int kingX, int kingY, PieceKing whiteKing){
+        for(int y = 0; y < boardArray.length; y++){
+            for(int x = 0; x < boardArray[1].length; x++) {
+                Piece arrayPiece = boardArray[y][x];
+                if((arrayPiece instanceof PieceKnight) && (((PieceKnight) arrayPiece).isBlack())){
+                    if( x + 2 == kingX && y + 1 == kingY ||
+                            x + 2 == kingX && y - 1 == kingY ||
+                            x + 1 == kingX && y + 2 == kingY ||
+                            x + 1 == kingX && y - 2 == kingY ||
+                            x - 2 == kingX && y + 1 == kingY ||
+                            x - 2 == kingX && y - 1 == kingY ||
+                            x - 1 == kingX && y + 2 == kingY ||
+                            x - 1 == kingX && y - 2 == kingY ){
+                        return true;
+                    }else{
+                        return false;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+    private boolean whiteQueenCheck(int kingX, int kingY, PieceKing whiteKing){
+        for(int y = 0; y < boardArray.length; y++){
+            for(int x = 0; x < boardArray[1].length; x++) {
+                Piece arrayPiece = boardArray[y][x];
+                if((arrayPiece instanceof PieceQueen) && (((PieceQueen) arrayPiece).isBlack())){
+                    System.out.println(x + ", " + y);
+                    if(x == kingX){ //rook is in line vertically lined up w/ king
+                        System.out.println("ran nigga");
+                        if(y < kingY) {
+                            for (int a = y+1; a < kingY; a++){
+                                if(boardArray[a][x] != null){
+                                    return false;
+                                }
+                            }
+                        }else{
+                            for (int a = kingY + 1; a < y; a++){
+                                if(boardArray[a][x] != null){
+                                    return false;
+                                }
+                            }
+                        }
+                    }else if(y == kingY){ //rook is in line horizontally lined up w/ king
+                        if(x < kingX) {
+                            for (int a = x+1; a < kingX; a++){
+                                if(boardArray[y][a] != null){
+                                    return false;
+                                }
+                            }
+                        }else{
+                            for (int a = kingX + 1; a < x; a++){
+                                if(boardArray[y][a] != null){
+                                    return false;
+                                }
+                            }
+                        }
+                    }else{
+                        return false;
+                    }
+                    return true;
+                }
+                if((arrayPiece instanceof PieceBishop) && (((PieceBishop) arrayPiece).isBlack())){
+                    if(Math.abs(x - kingX) == (Math.abs(y - kingY))){ //bishop is horizontally lined up w/ king
+                        if(y < kingY && x < kingX) {
+                            for (int a = 1; a < Math.abs(y-kingY); a++){
+                                if(boardArray[y+a][x+a] != null){
+                                    return false;
+                                }
+                            }
+                        }else if(y < kingY && x > kingX) {
+                            for (int a = 1; a < Math.abs(y-kingY); a++){
+                                if(boardArray[y+a][x-a] != null){
+                                    return false;
+                                }
+                            }
+                        }else if(y > kingY && x < kingX) {
+                            for (int a = 1; a < Math.abs(y-kingY); a++){
+                                if(boardArray[y-a][x+a] != null){
+                                    return false;
+                                }
+                            }
+                        }else if(y > kingY && x > kingX) {
+                            for (int a = 1; a < Math.abs(y - kingY); a++) {
+                                if (boardArray[y + a][x - a] != null) {
+                                    return false;
+                                }
+                            }
+                        }
+                    }else{
+                        return false;
+                    }
                     return true;
                 }
             }

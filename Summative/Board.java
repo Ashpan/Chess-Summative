@@ -55,6 +55,7 @@ public class Board extends Application {
                     piece.displayArray();
                     updateBoard(gridPane, piece);
                     piece.whiteCheck();
+                    System.out.println(piece.boardArray[0][0].getClass());
 
                 }
             }
