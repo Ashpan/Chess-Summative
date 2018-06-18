@@ -185,6 +185,10 @@ public class Piece {
                     return ( ((PieceQueen) boardArray[prevY][prevX]).canMoveVertical(currX, currY, prevX, prevY) ||
                             ((PieceQueen) boardArray[prevY][prevX]).canMoveHorizontal(currX, currY, prevX, prevY) ||
                             ((PieceQueen) boardArray[prevY][prevX]).canMoveDiagonal(currX, currY, prevX, prevY) );
+                } else if(boardArray[prevY][prevX] instanceof PieceKing){
+                    return ( ((PieceKing) boardArray[prevY][prevX]).canMoveVertical(currX, currY, prevX, prevY) ||
+                            ((PieceKing) boardArray[prevY][prevX]).canMoveHorizontal(currX, currY, prevX, prevY) ||
+                            ((PieceKing) boardArray[prevY][prevX]).canMoveDiagonal(currX, currY, prevX, prevY) );
                 }
                 return false;
 
