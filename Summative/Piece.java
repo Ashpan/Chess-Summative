@@ -148,10 +148,28 @@ public class Piece {
 
     public void makeMove(int currX, int currY, int prevX, int prevY){
         if(canMove(currX, currY, prevX, prevY)){
+            boolean prevWhiteCheck = whiteCheck();
+            boolean prevBlackCheck = blackCheck();
             System.out.println("moved played by: " + currPlayer);
-            currPlayer = currPlayer == Player.white ? Player.black : Player.white;
+            Piece future = boardArray[currY][currX];
             boardArray[currY][currX] = boardArray[prevY][prevX];
             boardArray[prevY][prevX] = null;
+            // TODO: if after move, currPlayer is in check, undo move and throw error
+            if(currPlayer == Player.white && whiteCheck()){
+                System.out.println("undo white");
+                boardArray[prevY][prevX] = boardArray[currY][currX];
+                boardArray[currY][currX] = future;
+                currPlayer = Player.black;
+            }
+            if(currPlayer == Player.black && blackCheck()){
+                System.out.println("undo black");
+                boardArray[prevY][prevX] = boardArray[currY][currX];
+                boardArray[currY][currX] = future;
+                currPlayer = Player.white;
+            }
+            currPlayer = currPlayer == Player.white ? Player.black : Player.white; //what does this do
+
+            System.out.println(currPlayer);
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");

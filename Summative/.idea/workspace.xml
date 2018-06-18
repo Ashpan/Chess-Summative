@@ -11,11 +11,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Click.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Click.java">
+      <file leaf-file-name="Piece.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Piece.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
+            <state relative-caret-position="179">
+              <caret line="245" selection-start-line="245" selection-end-line="245" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#305#306#0" expanded="true" />
+                <element signature="e#346#347#0" expanded="true" />
+                <element signature="method#init#0;class#Piece#0" />
+                <element signature="method#displayArray#0;class#Piece#0" />
+                <element signature="method#exists#0;class#Piece#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PieceKnight.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PieceKnight.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="22" selection-start-line="22" selection-end-line="22" />
             </state>
           </provider>
         </entry>
@@ -23,8 +40,8 @@
       <file leaf-file-name="Board.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Board.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="690">
-              <caret line="57" column="26" selection-start-line="57" selection-start-column="26" selection-end-line="57" selection-end-column="26" />
+            <state relative-caret-position="825">
+              <caret line="55" column="49" lean-forward="true" selection-start-line="55" selection-start-column="49" selection-end-line="55" selection-end-column="49" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#441#442#0" expanded="true" />
@@ -34,25 +51,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Piece.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Piece.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="347">
-              <caret line="188" column="73" lean-forward="true" selection-start-line="188" selection-start-column="73" selection-end-line="188" selection-end-column="73" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#305#306#0" expanded="true" />
-                <element signature="e#346#347#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PiecePawn.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="PiecePawn.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/PiecePawn.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="71" column="24" selection-start-line="71" selection-start-column="24" selection-end-line="71" selection-end-column="24" />
+            <state relative-caret-position="55">
+              <caret line="76" lean-forward="true" selection-start-line="76" selection-end-line="76" />
               <folding>
                 <element signature="e#362#363#0" expanded="true" />
                 <element signature="e#396#397#0" expanded="true" />
@@ -123,14 +126,16 @@
         <option value="$PROJECT_DIR$/PieceQueen.java" />
         <option value="$PROJECT_DIR$/PieceRook.java" />
         <option value="$PROJECT_DIR$/PieceBishop.java" />
-        <option value="$PROJECT_DIR$/Board.java" />
-        <option value="$PROJECT_DIR$/Piece.java" />
         <option value="$PROJECT_DIR$/PieceKing.java" />
         <option value="$PROJECT_DIR$/PiecePawn.java" />
+        <option value="$PROJECT_DIR$/Board.java" />
+        <option value="$PROJECT_DIR$/PieceKnight.java" />
+        <option value="$PROJECT_DIR$/Piece.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
+    <option name="x" value="45" />
     <option name="y" value="39" />
     <option name="width" value="1240" />
     <option name="height" value="861" />
@@ -240,7 +245,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="39" width="1240" height="861" extended-state="0" />
+    <frame x="45" y="39" width="1240" height="861" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
@@ -249,11 +254,11 @@
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" x="9" y="617" width="1381" height="232" id="Run" order="2" type="WINDOWED" visible="true" weight="0.28121212" />
+      <window_info active="true" anchor="bottom" x="9" y="617" width="1381" height="232" id="Run" order="2" visible="true" weight="0.28010473" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21657096" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49818182" visible="true" weight="0.21657096" />
+      <window_info id="Structure" order="1" sideWeight="0.5018182" side_tool="true" visible="true" weight="0.21657096" />
       <window_info id="UI Designer" order="2" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
@@ -294,12 +299,10 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="2" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Bishop.java" />
-    <entry file="file://$PROJECT_DIR$/Pawn.java" />
     <entry file="file://$PROJECT_DIR$/Queen.java" />
     <entry file="file://$PROJECT_DIR$/Rook.java" />
     <entry file="file://$PROJECT_DIR$/Knight.java" />
@@ -503,27 +506,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Board.java">
+    <entry file="file://$PROJECT_DIR$/chessBackground.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PiecePawn.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="690">
-          <caret line="57" column="26" selection-start-line="57" selection-start-column="26" selection-end-line="57" selection-end-column="26" />
+        <state relative-caret-position="55">
+          <caret line="76" lean-forward="true" selection-start-line="76" selection-end-line="76" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#441#442#0" expanded="true" />
-            <element signature="e#481#482#0" expanded="true" />
+            <element signature="e#362#363#0" expanded="true" />
+            <element signature="e#396#397#0" expanded="true" />
+            <element signature="e#419#420#0" expanded="true" />
+            <element signature="e#453#454#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Piece.java">
+    <entry file="file://$PROJECT_DIR$/PieceKnight.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="347">
-          <caret line="188" column="73" lean-forward="true" selection-start-line="188" selection-start-column="73" selection-end-line="188" selection-end-column="73" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#305#306#0" expanded="true" />
-            <element signature="e#346#347#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="270">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
         </state>
       </provider>
     </entry>
@@ -534,15 +536,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PiecePawn.java">
+    <entry file="file://$PROJECT_DIR$/Board.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="71" column="24" selection-start-line="71" selection-start-column="24" selection-end-line="71" selection-end-column="24" />
+        <state relative-caret-position="825">
+          <caret line="55" column="49" lean-forward="true" selection-start-line="55" selection-start-column="49" selection-end-line="55" selection-end-column="49" />
           <folding>
-            <element signature="e#362#363#0" expanded="true" />
-            <element signature="e#396#397#0" expanded="true" />
-            <element signature="e#419#420#0" expanded="true" />
-            <element signature="e#453#454#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#441#442#0" expanded="true" />
+            <element signature="e#481#482#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Piece.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="245" selection-start-line="245" selection-end-line="245" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#305#306#0" expanded="true" />
+            <element signature="e#346#347#0" expanded="true" />
+            <element signature="method#init#0;class#Piece#0" />
+            <element signature="method#displayArray#0;class#Piece#0" />
+            <element signature="method#exists#0;class#Piece#0" />
           </folding>
         </state>
       </provider>

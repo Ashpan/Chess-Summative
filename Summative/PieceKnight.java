@@ -5,14 +5,13 @@ public class PieceKnight extends Piece {
     private int xCoord, yCoord;
     private int moves;
     public Image image;
-    private boolean isBlack;
 
     PieceKnight(int xCoord, int yCoord, boolean isBlack, Image image) {
+        super(isBlack);
         this.xCoord = xCoord;
         this.yCoord = yCoord;
         this.image = image;
-        this.isBlack = isBlack;
-//        Piece.boardArray[xCoord][yCoord] = this;
+
     }
     public int getX(){
         return this.xCoord;
@@ -21,7 +20,6 @@ public class PieceKnight extends Piece {
         return this.yCoord;
     }
 
-    public boolean isBlack() { return isBlack; }
     public Image getImage() { return image; }
 
 
