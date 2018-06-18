@@ -54,6 +54,7 @@ public class Board extends Application {
                     piece.makeMove(currX, currY, prevX, prevY);
                     piece.displayArray();
                     updateBoard(gridPane, piece);
+                    piece.whiteCheck();
 
                 }
             }
