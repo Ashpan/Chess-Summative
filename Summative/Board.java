@@ -22,7 +22,7 @@ public class Board extends Application {
         Piece piece = new Piece();
         piece.init();
         piece.displayArray();
-        primaryStage.setTitle("Chess Game!");
+        primaryStage.setTitle("New Chess Game by Jian Yan---- I mean Omar + Ashpan!");
         GridPane gridPane = updateBoard(piece);
         Scene scene = new Scene(gridPane, 480,480);
         primaryStage.setScene(scene);
@@ -54,10 +54,18 @@ public class Board extends Application {
                      piece.displayArray();
 
                     updateBoard(gridPane, piece);
-                    piece.whiteCheck();
-                    piece.blackCheck();
+//                    piece.whiteCheck();
+//                    piece.blackCheck();
+//                    piece.Kings();
+//                    currPlayer = currPlayer == Player.white ? Player.black : Player.white;
+                    String whiteCheck = piece.whiteCheck() ? "Check on White" : "";
+                    String blackCheck = piece.blackCheck() ? "Check on Black" : "";
+                    primaryStage.setTitle(piece.player() + " | " + whiteCheck + blackCheck);
 
                 }
+
+
+
             }
         });
 //        updateBoard(gridPane, piece);

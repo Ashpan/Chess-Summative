@@ -3,8 +3,8 @@ import javafx.scene.image.Image;
 public class PiecePawn extends Piece {
 
     private int xCoord, yCoord;
-    public int moves;
-    public Image image;
+    private int moves;
+    private Image image;
 
     PiecePawn(int xCoord, int yCoord, boolean isBlack, Image image) {
         super(isBlack);

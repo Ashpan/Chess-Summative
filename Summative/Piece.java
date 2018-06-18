@@ -91,39 +91,6 @@ public class Piece {
         boardArray[wn2.getY()][wn2.getX()] = wn2;
         boardArray[wr2.getY()][wr2.getX()] = wr2;
 
-//        System.out.println(bp1.getX() + ", " + bp1.getY() + " | " + bp1.isBlack());
-//        System.out.println(bp2.getX() + ", " + bp2.getY());
-//        System.out.println(bp3.getX() + ", " + bp3.getY());
-//        System.out.println(bp4.getX() + ", " + bp4.getY());
-//        System.out.println(bp5.getX() + ", " + bp5.getY());
-//        System.out.println(bp6.getX() + ", " + bp6.getY());
-//        System.out.println(bp7.getX() + ", " + bp7.getY());
-//        System.out.println(bp8.getX() + ", " + bp8.getY());
-//        System.out.println(br1.getX() + ", " + br1.getY());
-//        System.out.println(bn1.getX() + ", " + bn1.getY());
-//        System.out.println(bb1.getX() + ", " + bb1.getY());
-//        System.out.println(bq1.getX() + ", " + bq1.getY());
-//        System.out.println(bk1.getX() + ", " + bk1.getY());
-//        System.out.println(bb2.getX() + ", " + bb2.getY());
-//        System.out.println(bn2.getX() + ", " + bn2.getY());
-//        System.out.println(br2.getX() + ", " + br2.getY());
-//        System.out.println(wp1.getX() + ", " + wp1.getY());
-//        System.out.println(wp2.getX() + ", " + wp2.getY());
-//        System.out.println(wp3.getX() + ", " + wp3.getY());
-//        System.out.println(wp4.getX() + ", " + wp4.getY());
-//        System.out.println(wp5.getX() + ", " + wp5.getY());
-//        System.out.println(wp6.getX() + ", " + wp6.getY());
-//        System.out.println(wp7.getX() + ", " + wp7.getY());
-//        System.out.println(wp8.getX() + ", " + wp8.getY());
-//        System.out.println(wr1.getX() + ", " + wr1.getY());
-//        System.out.println(wn1.getX() + ", " + wn1.getY());
-//        System.out.println(wb1.getX() + ", " + wb1.getY());
-//        System.out.println(wq1.getX() + ", " + wq1.getY());
-//        System.out.println(wk1.getX() + ", " + wk1.getY());
-//        System.out.println(wb2.getX() + ", " + wb2.getY());
-//        System.out.println(wn2.getX() + ", " + wn2.getY());
-//        System.out.println(wr2.getX() + ", " + wr2.getY());
-
         
     }
 
@@ -146,6 +113,15 @@ public class Piece {
         }
     }
 
+    public String player(){
+        if(currPlayer == Player.white ){
+            return "White";
+        }else if(currPlayer == Player.black ){
+            return "Black";
+        }
+        return "";
+    }
+
     public void makeMove(int currX, int currY, int prevX, int prevY){
         if(canMove(currX, currY, prevX, prevY)){
             boolean prevWhiteCheck = whiteCheck();
@@ -160,15 +136,30 @@ public class Piece {
                 boardArray[prevY][prevX] = boardArray[currY][currX];
                 boardArray[currY][currX] = future;
                 currPlayer = Player.black;
+
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Check");
+                alert.setHeaderText(null);
+                alert.setContentText("White is/will be in check.");
+
+                alert.showAndWait();
+
             }
             if(currPlayer == Player.black && blackCheck()){
                 System.out.println("undo black");
                 boardArray[prevY][prevX] = boardArray[currY][currX];
                 boardArray[currY][currX] = future;
                 currPlayer = Player.white;
-            }
-            currPlayer = currPlayer == Player.white ? Player.black : Player.white; //what does this do
 
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Check");
+                alert.setHeaderText(null);
+                alert.setContentText("Black is/will be in check.");
+
+                alert.showAndWait();
+
+            }
+            currPlayer = currPlayer == Player.white ? Player.black : Player.white;
             System.out.println(currPlayer);
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -196,10 +187,10 @@ public class Piece {
                 }else if(boardArray[prevY][prevX] instanceof PieceKnight){
                     return ( ((PieceKnight) boardArray[prevY][prevX]).canMoveL(currX, currY, prevX, prevY) );
                 }else if(boardArray[prevY][prevX] instanceof PieceBishop){
-                    return ( ((PieceQueen) boardArray[prevY][prevX]).canMoveDiagonal(currX, currY, prevX, prevY) );
+                    return ( ((PieceBishop) boardArray[prevY][prevX]).canMoveDiagonal(currX, currY, prevX, prevY) );
                 }else if(boardArray[prevY][prevX] instanceof PieceRook){
-                    return ( ((PieceQueen) boardArray[prevY][prevX]).canMoveVertical(currX, currY, prevX, prevY) ||
-                            ((PieceQueen) boardArray[prevY][prevX]).canMoveHorizontal(currX, currY, prevX, prevY) );
+                    return ( ((PieceRook) boardArray[prevY][prevX]).canMoveVertical(currX, currY, prevX, prevY) ||
+                            ((PieceRook) boardArray[prevY][prevX]).canMoveHorizontal(currX, currY, prevX, prevY) );
                 }else if(boardArray[prevY][prevX] instanceof PieceQueen){
                     return ( ((PieceQueen) boardArray[prevY][prevX]).canMoveVertical(currX, currY, prevX, prevY) ||
                             ((PieceQueen) boardArray[prevY][prevX]).canMoveHorizontal(currX, currY, prevX, prevY) ||
@@ -228,14 +219,18 @@ public class Piece {
                 }else if(boardArray[prevY][prevX] instanceof PieceKnight){
                     return ( ((PieceKnight) boardArray[prevY][prevX]).canMoveL(currX, currY, prevX, prevY) );
                 }else if(boardArray[prevY][prevX] instanceof PieceBishop){
-                    return ( ((PieceQueen) boardArray[prevY][prevX]).canMoveDiagonal(currX, currY, prevX, prevY) );
+                    return ( ((PieceBishop) boardArray[prevY][prevX]).canMoveDiagonal(currX, currY, prevX, prevY) );
                 }else if(boardArray[prevY][prevX] instanceof PieceRook){
-                    return ( ((PieceQueen) boardArray[prevY][prevX]).canMoveVertical(currX, currY, prevX, prevY) ||
-                            ((PieceQueen) boardArray[prevY][prevX]).canMoveHorizontal(currX, currY, prevX, prevY) );
+                    return ( (PieceRook) boardArray[prevY][prevX]).canMoveVertical(currX, currY, prevX, prevY) ||
+                            ((PieceRook) boardArray[prevY][prevX]).canMoveHorizontal(currX, currY, prevX, prevY);
                 }else if(boardArray[prevY][prevX] instanceof PieceQueen){
                     return ( ((PieceQueen) boardArray[prevY][prevX]).canMoveVertical(currX, currY, prevX, prevY) ||
                             ((PieceQueen) boardArray[prevY][prevX]).canMoveHorizontal(currX, currY, prevX, prevY) ||
                             ((PieceQueen) boardArray[prevY][prevX]).canMoveDiagonal(currX, currY, prevX, prevY) );
+                } else if(boardArray[prevY][prevX] instanceof  PieceKing) {
+                    return ( ((PieceKing) boardArray[prevY][prevX]).canMoveVertical(currX, currY, prevX, prevY) ||
+                            ((PieceKing) boardArray[prevY][prevX]).canMoveHorizontal(currX, currY, prevX, prevY) ||
+                            ((PieceKing) boardArray[prevY][prevX]).canMoveDiagonal(currX, currY, prevX, prevY) );
                 }
                 return false;
 
@@ -539,7 +534,6 @@ public class Piece {
             for (int x = startX; x < boardArray[1].length; x++) {
                 Piece arrayPiece = boardArray[y][x];
                 if((arrayPiece instanceof PieceBishop) && !(((PieceBishop) arrayPiece).isBlack())){
-                    System.out.println("Bishop: " + x + ", " + y);
                     if(Math.abs(x - kingX) == (Math.abs(y - kingY))){ //bishop is horizontally lined up w/ king
                         if(y < kingY && x < kingX) {
                             for (int a = 1; a < Math.abs(y-kingY); a++){
@@ -674,7 +668,6 @@ public class Piece {
         }
         return false;
     }
-
     public boolean blackCheck(){
         int kingX = -1;
         int kingY = -1;
@@ -701,6 +694,27 @@ public class Piece {
                 blackBishopCheck(kingX, kingY, blackKing, 0 ,0) ||
                 blackKnightCheck(kingX, kingY, blackKing, 0 ,0) ||
                 blackQueenCheck(kingX, kingY, blackKing, 0 ,0));
+    }
+
+    public void Kings(){
+        int kingAlive = 0;
+        for (int y = 0; y < boardArray.length-1; y++) {
+            for (int x = 0; x < boardArray[1].length-1; y++) {
+                if(boardArray[y][x] != null) {
+                    if (boardArray[y][x] instanceof PieceKing) {
+                        kingAlive++;
+                    }
+                }
+            }
+        }
+        if(kingAlive < 2){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Game Over");
+            alert.setHeaderText(null);
+            alert.setContentText("King is dead | The Cake is a lie");
+
+            alert.showAndWait();
+        }
     }
 
 

@@ -7,6 +7,7 @@ public class PieceBishop extends Piece {
     public Image image;
 
     PieceBishop(int xCoord, int yCoord, boolean isBlack, Image image) {
+        super(isBlack);
         this.xCoord = xCoord;
         this.yCoord = yCoord;
         this.image = image;
