@@ -493,6 +493,7 @@ public class Piece {
                 Piece arrayPiece = boardArray[y][x];
                 if((arrayPiece instanceof PieceRook) && !(((PieceRook) arrayPiece).isBlack())){
                     if(x == kingX){ //rook is in line vertically lined up w/ king
+                        System.out.println("Vertical Line Up: " + x + ", " + y);
                         if(y < kingY) {
                             for (int a = y+1; a < kingY; a++){
                                 if(boardArray[a][x] != null){
@@ -507,6 +508,7 @@ public class Piece {
                             }
                         }
                     }else if(y == kingY){ //rook is in line horizontally lined up w/ king
+                        System.out.println("Horizontal Line Up: " + x + ", " + y);
                         if(x < kingX) {
                             for (int a = x+1; a < kingX; a++){
                                 if(boardArray[y][a] != null){
@@ -683,17 +685,95 @@ public class Piece {
                 }
             }
         }
-        System.out.println("k: " + (blackPawnCheck(kingX, kingY, blackKing, 0 ,0) ||
-                blackRookCheck(kingX, kingY, blackKing, 0 ,0) ||
-                blackBishopCheck(kingX, kingY, blackKing, 0 ,0) ||
-                blackKnightCheck(kingX, kingY, blackKing, 0 ,0) ||
-                blackQueenCheck(kingX, kingY, blackKing, 0 ,0)));
+        boolean blackPawnCheck =  blackPawnCheck(kingX, kingY, blackKing, 0 ,0);
+        boolean blackRookCheck = blackRookCheck(kingX, kingY, blackKing, 0 ,0);
+        boolean blackBishopCheck = blackBishopCheck(kingX, kingY, blackKing, 0 ,0);
+        boolean blackKnightCheck = blackKnightCheck(kingX, kingY, blackKing, 0 ,0);
+        boolean blackQueenCheck = blackQueenCheck(kingX, kingY, blackKing, 0 ,0);
 
-        return (blackPawnCheck(kingX, kingY, blackKing, 0 ,0) ||
-                blackRookCheck(kingX, kingY, blackKing, 0 ,0) ||
-                blackBishopCheck(kingX, kingY, blackKing, 0 ,0) ||
-                blackKnightCheck(kingX, kingY, blackKing, 0 ,0) ||
-                blackQueenCheck(kingX, kingY, blackKing, 0 ,0));
+        System.out.println("k: " + (blackPawnCheck || blackRookCheck || blackBishopCheck || blackKnightCheck || blackQueenCheck));
+
+        System.out.println("bPC: " + blackPawnCheck);
+        System.out.println("bRC: " + blackRookCheck);
+        System.out.println("bBC: " + blackBishopCheck);
+        System.out.println("bKC: " + blackKnightCheck);
+        System.out.println("bQC: " + blackQueenCheck);
+
+
+        return (blackPawnCheck || blackRookCheck || blackBishopCheck || blackKnightCheck || blackQueenCheck);
+    }
+    public boolean blackCheckmate(){
+        int kingX = -1;
+        int kingY = -1;
+        PieceKing blackKing = new PieceKing(0,0,true, new Image("https://i.imgur.com/LXorSui.png"));
+        for(int y = 0; y < boardArray.length; y++) {
+            for (int x = 0; x < boardArray[1].length; x++) {
+                //Find black king (T'CHALLA FOREVER)
+                if (boardArray[y][x] instanceof PieceKing && ((PieceKing) boardArray[y][x]).isBlack()) {
+                    kingX = x;
+                    kingY = y;
+                    blackKing = (PieceKing) boardArray[y][x];
+                    System.out.println("Black King: " + kingX + ", " + kingY);
+                }
+            }
+        }
+        int[] xArray = new int[]{0, 0, 1, 1, 1, -1, -1, -1};
+        int[] yArray = new int[]{-1, 1, -1, 0, 1, -1, 0, 1};
+        for(int x = 0; x < xArray.length; x++){
+            try{
+                System.out.println((kingX + xArray[x]) + ", " + (kingY + yArray[x]));
+                Piece oldPiece = boardArray[kingY + yArray[x]][kingX + xArray[x]];
+                if(!oldPiece.isBlack()){
+                    boardArray[kingY][kingX] = null;
+                    boardArray[kingY + yArray[x]][kingX + xArray[x]] = blackKing;
+                    if(!blackCheck()){
+                        boardArray[kingY][kingX] = blackKing;
+                        boardArray[kingY + yArray[x]][kingX + xArray[x]] = oldPiece;
+                        return false;
+                    }
+                    boardArray[kingY][kingX] = blackKing;
+                    boardArray[kingY + yArray[x]][kingX + xArray[x]] = oldPiece;
+                }
+            }catch(IndexOutOfBoundsException e){}
+        }
+        return true;
+    }
+
+    public boolean whiteCheckmate(){
+        int kingX = -1;
+        int kingY = -1;
+        PieceKing whiteKing = new PieceKing(0,0,true, new Image("https://i.imgur.com/LXorSui.png"));
+        for(int y = 0; y < boardArray.length; y++) {
+            for (int x = 0; x < boardArray[1].length; x++) {
+                //Find black king (T'CHALLA FOREVER)
+                if (boardArray[y][x] instanceof PieceKing && ((PieceKing) boardArray[y][x]).isBlack()) {
+                    kingX = x;
+                    kingY = y;
+                    whiteKing = (PieceKing) boardArray[y][x];
+                    System.out.println("White King: " + kingX + ", " + kingY);
+                }
+            }
+        }
+        int[] xArray = new int[]{0, 0, 1, 1, 1, -1, -1, -1};
+        int[] yArray = new int[]{-1, 1, -1, 0, 1, -1, 0, 1};
+        for(int x = 0; x < xArray.length; x++){
+            try{
+                System.out.println((kingX + xArray[x]) + ", " + (kingY + yArray[x]));
+                Piece oldPiece = boardArray[kingY + yArray[x]][kingX + xArray[x]];
+                if(oldPiece.isBlack()){
+                    boardArray[kingY][kingX] = null;
+                    boardArray[kingY + yArray[x]][kingX + xArray[x]] = whiteKing;
+                    if(!blackCheck()){
+                        boardArray[kingY][kingX] = whiteKing;
+                        boardArray[kingY + yArray[x]][kingX + xArray[x]] = oldPiece;
+                        return false;
+                    }
+                    boardArray[kingY][kingX] = whiteKing;
+                    boardArray[kingY + yArray[x]][kingX + xArray[x]] = oldPiece;
+                }
+            }catch(IndexOutOfBoundsException e){}
+        }
+        return true;
     }
 
     public void Kings(){

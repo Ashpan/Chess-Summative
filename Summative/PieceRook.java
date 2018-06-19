@@ -7,6 +7,7 @@ public class PieceRook extends Piece {
     public Image image;
 
     PieceRook(int xCoord, int yCoord, boolean isBlack, Image image) {
+        super(isBlack);
         this.xCoord = xCoord;
         this.yCoord = yCoord;
         this.image = image;

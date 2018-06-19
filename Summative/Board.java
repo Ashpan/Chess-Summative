@@ -1,6 +1,7 @@
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -22,7 +23,7 @@ public class Board extends Application {
         Piece piece = new Piece();
         piece.init();
         piece.displayArray();
-        primaryStage.setTitle("New Chess Game by Jian Yan---- I mean Omar + Ashpan!");
+        primaryStage.setTitle("New Chess Game by Jian Ya---- I mean Omar + Ashpan!");
         GridPane gridPane = updateBoard(piece);
         Scene scene = new Scene(gridPane, 480,480);
         primaryStage.setScene(scene);
@@ -61,6 +62,20 @@ public class Board extends Application {
                     String whiteCheck = piece.whiteCheck() ? "Check on White" : "";
                     String blackCheck = piece.blackCheck() ? "Check on Black" : "";
                     primaryStage.setTitle(piece.player() + " | " + whiteCheck + blackCheck);
+                    if(piece.blackCheckmate()){
+                        Alert alert = new Alert(Alert.AlertType.ERROR);
+                        alert.setTitle("Check");
+                        alert.setHeaderText(null);
+                        alert.setContentText("Black in checkmate! White Wins!");
+                        alert.showAndWait();
+                    }
+                    if(piece.whiteCheckmate()){
+                        Alert alert = new Alert(Alert.AlertType.ERROR);
+                        alert.setTitle("Check");
+                        alert.setHeaderText(null);
+                        alert.setContentText("White in checkmate! Black Wins!");
+                        alert.showAndWait();
+                    }
 
                 }
 
