@@ -723,7 +723,7 @@ public class Piece {
             try{
                 System.out.println((kingX + xArray[x]) + ", " + (kingY + yArray[x]));
                 Piece oldPiece = boardArray[kingY + yArray[x]][kingX + xArray[x]];
-                if(!oldPiece.isBlack()){
+                if(!oldPiece.isBlack() || oldPiece == null){
                     boardArray[kingY][kingX] = null;
                     boardArray[kingY + yArray[x]][kingX + xArray[x]] = blackKing;
                     if(!blackCheck()){
@@ -762,7 +762,7 @@ public class Piece {
             try{
                 System.out.println((kingX + xArray[x]) + ", " + (kingY + yArray[x]));
                 Piece oldPiece = boardArray[kingY + yArray[x]][kingX + xArray[x]];
-                if(oldPiece.isBlack()){
+                if(oldPiece.isBlack() || oldPiece == null){
                     boardArray[kingY][kingX] = null;
                     boardArray[kingY + yArray[x]][kingX + xArray[x]] = whiteKing;
                     if(!blackCheck()){
