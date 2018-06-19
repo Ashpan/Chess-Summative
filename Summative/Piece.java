@@ -733,6 +733,8 @@ public class Piece {
                     }
                     boardArray[kingY][kingX] = blackKing;
                     boardArray[kingY + yArray[x]][kingX + xArray[x]] = oldPiece;
+                }else if(oldPiece.isBlack()){
+                    return false;
                 }
             }catch(IndexOutOfBoundsException e){}
         }
@@ -770,6 +772,8 @@ public class Piece {
                     }
                     boardArray[kingY][kingX] = whiteKing;
                     boardArray[kingY + yArray[x]][kingX + xArray[x]] = oldPiece;
+                }else if(!oldPiece.isBlack()){
+                    return false;
                 }
             }catch(IndexOutOfBoundsException e){}
         }
