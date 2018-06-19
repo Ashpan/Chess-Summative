@@ -52,7 +52,7 @@ public class Board extends Application {
                     System.out.println("Prev: " + prevX + ", " + prevY);
                     System.out.println("Curr: " + currX + ", " + currY);
                     piece.makeMove(currX, currY, prevX, prevY);
-                     piece.displayArray();
+//                     piece.displayArray();
 
                     updateBoard(gridPane, piece);
 //                    piece.whiteCheck();
@@ -62,22 +62,31 @@ public class Board extends Application {
                     String whiteCheck = piece.whiteCheck() ? "Check on White" : "";
                     String blackCheck = piece.blackCheck() ? "Check on Black" : "";
                     primaryStage.setTitle(piece.player() + " | " + whiteCheck + blackCheck);
+
+
                     if(piece.blackCheckmate()){
+                        System.out.println("-------------\ncheckmate black");
                         Alert alert = new Alert(Alert.AlertType.ERROR);
                         alert.setTitle("Check");
                         alert.setHeaderText(null);
                         alert.setContentText("Black in checkmate! White Wins!");
                         alert.showAndWait();
+                    }else{
+                        System.out.println("-------------\nnot checkmate black");
                     }
                     if(piece.whiteCheckmate()){
+                        System.out.println("-------------\ncheckmate white");
                         Alert alert = new Alert(Alert.AlertType.ERROR);
                         alert.setTitle("Check");
                         alert.setHeaderText(null);
                         alert.setContentText("White in checkmate! Black Wins!");
                         alert.showAndWait();
+                    }else{
+                        System.out.println("---------------\nnot checkmate white");
                     }
 
                 }
+
 
 
 

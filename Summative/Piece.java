@@ -653,7 +653,7 @@ public class Piece {
                                 }
                             }else if(y > kingY && x > kingX) {
                                 for (int a = 1; a < Math.abs(y - kingY); a++) {
-                                    if (boardArray[y + a][x - a] != null) {
+                                    if (boardArray[y - a][x - a] != null) {
                                         return false;
                                     }
                                 }
@@ -693,11 +693,6 @@ public class Piece {
 
         System.out.println("k: " + (blackPawnCheck || blackRookCheck || blackBishopCheck || blackKnightCheck || blackQueenCheck));
 
-        System.out.println("bPC: " + blackPawnCheck);
-        System.out.println("bRC: " + blackRookCheck);
-        System.out.println("bBC: " + blackBishopCheck);
-        System.out.println("bKC: " + blackKnightCheck);
-        System.out.println("bQC: " + blackQueenCheck);
 
 
         return (blackPawnCheck || blackRookCheck || blackBishopCheck || blackKnightCheck || blackQueenCheck);
@@ -723,7 +718,7 @@ public class Piece {
             try{
                 System.out.println((kingX + xArray[x]) + ", " + (kingY + yArray[x]));
                 Piece oldPiece = boardArray[kingY + yArray[x]][kingX + xArray[x]];
-                if(!oldPiece.isBlack() || oldPiece == null){
+                if(oldPiece == null || !oldPiece.isBlack()){
                     boardArray[kingY][kingX] = null;
                     boardArray[kingY + yArray[x]][kingX + xArray[x]] = blackKing;
                     if(!blackCheck()){
@@ -762,7 +757,7 @@ public class Piece {
             try{
                 System.out.println((kingX + xArray[x]) + ", " + (kingY + yArray[x]));
                 Piece oldPiece = boardArray[kingY + yArray[x]][kingX + xArray[x]];
-                if(oldPiece.isBlack() || oldPiece == null){
+                if(oldPiece == null || oldPiece.isBlack()){
                     boardArray[kingY][kingX] = null;
                     boardArray[kingY + yArray[x]][kingX + xArray[x]] = whiteKing;
                     if(!blackCheck()){

@@ -17,11 +17,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Board.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Board.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Board.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="426">
-              <caret line="71" column="31" lean-forward="true" selection-start-line="71" selection-start-column="31" selection-end-line="71" selection-end-column="31" />
+            <state relative-caret-position="334">
+              <caret line="74" column="81" lean-forward="true" selection-start-line="74" selection-start-column="81" selection-end-line="74" selection-end-column="81" />
               <folding>
                 <element signature="method#updateBoard#0;class#Board#0" expanded="false" />
                 <element signature="method#updateBoard#1;class#Board#0" expanded="false" />
@@ -30,11 +30,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Piece.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Piece.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Piece.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="202">
-              <caret line="725" column="39" lean-forward="true" selection-start-line="725" selection-start-column="39" selection-end-line="725" selection-end-column="39" />
+            <state relative-caret-position="383">
+              <caret line="725" column="84" lean-forward="true" selection-start-line="725" selection-start-column="84" selection-end-line="725" selection-end-column="84" />
               <folding>
                 <element signature="method#init#0;class#Piece#0" expanded="false" />
                 <element signature="method#displayArray#0;class#Piece#0" expanded="false" />
@@ -44,8 +44,8 @@
                 <element signature="method#blackRookCheck#0;class#Piece#0" expanded="false" />
                 <element signature="method#blackBishopCheck#0;class#Piece#0" expanded="false" />
                 <element signature="method#blackKnightCheck#0;class#Piece#0" expanded="false" />
-                <element signature="method#blackQueenCheck#0;class#Piece#0" expanded="false" />
                 <element signature="method#blackCheck#0;class#Piece#0" expanded="false" />
+                <element signature="method#whiteCheckmate#0;class#Piece#0" expanded="false" />
                 <element signature="method#Kings#0;class#Piece#0" expanded="false" />
               </folding>
             </state>
@@ -133,8 +133,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/PieceRook.java" />
-        <option value="$PROJECT_DIR$/Board.java" />
         <option value="$PROJECT_DIR$/Piece.java" />
+        <option value="$PROJECT_DIR$/Board.java" />
       </list>
     </option>
   </component>
@@ -443,11 +443,6 @@
               <item name="Summative" type="b2602c69:ProjectViewProjectNode" />
               <item name="Summative" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="Summative" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Summative" type="462c0819:PsiDirectoryNode" />
-              <item name="Piece.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -591,31 +586,30 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1529355876375</updated>
-      <workItem from="1529355881102" duration="11110000" />
+      <workItem from="1529355881102" duration="18891000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11110000" />
+    <option name="totallyTimeSpent" value="18891000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32984293" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2565445" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.43769634" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17760417" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17760417" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -643,14 +637,6 @@
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/PieceBishop.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PieceKnight.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
@@ -698,21 +684,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Board.java">
+    <entry file="file://$PROJECT_DIR$/PieceKnight.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="426">
-          <caret line="71" column="31" lean-forward="true" selection-start-line="71" selection-start-column="31" selection-end-line="71" selection-end-column="31" />
-          <folding>
-            <element signature="method#updateBoard#0;class#Board#0" expanded="false" />
-            <element signature="method#updateBoard#1;class#Board#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="34">
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Piece.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="725" column="39" lean-forward="true" selection-start-line="725" selection-start-column="39" selection-end-line="725" selection-end-column="39" />
+        <state relative-caret-position="383">
+          <caret line="725" column="84" lean-forward="true" selection-start-line="725" selection-start-column="84" selection-end-line="725" selection-end-column="84" />
           <folding>
             <element signature="method#init#0;class#Piece#0" expanded="false" />
             <element signature="method#displayArray#0;class#Piece#0" expanded="false" />
@@ -722,9 +705,20 @@
             <element signature="method#blackRookCheck#0;class#Piece#0" expanded="false" />
             <element signature="method#blackBishopCheck#0;class#Piece#0" expanded="false" />
             <element signature="method#blackKnightCheck#0;class#Piece#0" expanded="false" />
-            <element signature="method#blackQueenCheck#0;class#Piece#0" expanded="false" />
             <element signature="method#blackCheck#0;class#Piece#0" expanded="false" />
+            <element signature="method#whiteCheckmate#0;class#Piece#0" expanded="false" />
             <element signature="method#Kings#0;class#Piece#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Board.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="334">
+          <caret line="74" column="81" lean-forward="true" selection-start-line="74" selection-start-column="81" selection-end-line="74" selection-end-column="81" />
+          <folding>
+            <element signature="method#updateBoard#0;class#Board#0" expanded="false" />
+            <element signature="method#updateBoard#1;class#Board#0" expanded="false" />
           </folding>
         </state>
       </provider>
